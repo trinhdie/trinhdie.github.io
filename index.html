@@ -31,9 +31,47 @@
           float: center;
         }
 
+        .menu_dropdown{
+          display: inline-block;
+          position: relative;
+        }
+        .dropdown_options {
+          display: none;
+          position: absolute;
+          overflow: auto;
+          padding: 12px 16 px;
+          text-align: center;
+        }
+
+        .menu_dropdown:hover .dropdown_options {
+          display: block;
+        }
+        
+        .dropbtn {
+          background-color: #effffb;
+          color: rgb(5, 5, 5);
+          padding: 16px;
+          font-size: 17px;
+          border: solid;
+        }
+
+        hr{
+          height: 2px;
+          background-color: #fff6dc;
+        }
+
         </style>
 
     <header >
+      <div class="menu_dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown_options">
+          <a hef="#">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#illustrations">Illustations</a>
+        </div>
+      </div>
+
         <div class="image">
         <p><img src="images/favicon.png" alt="Logo"></p></div>
         <div class="container">
@@ -46,9 +84,10 @@
         <div class="container">
         <pre><h3>Contact Me:</h3><div class="image"><h4><a href="mailto: trinhdiep@260@gmail.com">trinhdiep260@gmail.com</a><a href="https://www.linkedin.com/in/trinhdiep" target="_blank"><img src="images/linkedin_logo.jpg" alt="linkedin logo" width="50" height="50">
         </a></h4></div></pre></div>
-        <hr><br>
-        <div class="text">
-        <h2> Projects</h2></div>
+        <hr class="hr">
+        <div class="text"><h2><a name="projects"> Projects</a></h2></div>
+        <br>
+        <div class="text"><h2><a name="illustrations">Illustrations</a></h2></div>
 
     </body>
     <footer>
