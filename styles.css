@@ -27,6 +27,7 @@
     overflow: auto;
     padding: 12px 16 px;
     text-align: center;
+    font-size: 20px;
   }
 
   .menu_dropdown:hover .dropdown_options {
@@ -37,11 +38,23 @@
     background-color: #effffb;
     color: rgb(5, 5, 5);
     padding: 16px;
-    font-size: 17px;
+    font-size: 20px;
     border: solid;
   }
 
   hr{
     height: 2px;
-    background-color: #fff6dc;
+    background-color: #ffdcfa;
+  }
+
+  h1{
+    color: rgb(114, 75, 186);
+  }
+
+  h2{
+    color:rgb(145, 118, 194);
+  }
+
+  h3{
+    color: rgb(169, 137, 229)
   }
