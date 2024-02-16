@@ -55,7 +55,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #c9d8d4;
+    background-color: #fffcef;
   }
   
   li {
@@ -71,7 +71,7 @@
   }
   
   li a:hover {
-    background-color: rgb(169, 137, 229);
+    background-color: #c9d8d4;
   }
   
   ul {
