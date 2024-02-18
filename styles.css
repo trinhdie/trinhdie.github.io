@@ -4,10 +4,10 @@
     justify-content: center;
   }
   
-  img {
+  image{
     max-width: 22%;
     max-height:12%;
-    float: center;
+    float: left;
   }
   
   .text {
