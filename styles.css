@@ -4,9 +4,9 @@
     justify-content: center;
   }
   
-  image{
-    max-width: 22%;
-    max-height:12%;
+  .image {
+    max-width: 50%;
+    height: auto;
     float: left;
   }
   
@@ -93,3 +93,4 @@
   margin-right: auto;
   margin-left: auto;
  }
+
