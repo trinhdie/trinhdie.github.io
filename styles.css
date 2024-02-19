@@ -117,15 +117,15 @@
 }
 
 .image-container img {
-  display: block;
-  width: 50%;
+  float: left;
+  width: 40%;
   height: auto;
 }
 
 .overlay-text {
   position: absolute;
   top: 75%; 
-  left: 25%; 
+  left: 20%; 
   transform: translate(-50%, -50%); 
   background-color: #000000; 
   color: #fff; 
