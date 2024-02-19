@@ -94,3 +94,10 @@
   margin-left: auto;
  }
 
+ .zoom img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.zoom img:hover {
+  transform: scale(1.5);
+}
