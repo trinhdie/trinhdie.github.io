@@ -116,16 +116,12 @@
   display: inline-block;
 }
 
-.image-container img {
-  float: left;
-  width: 40%;
-  height: auto;
-}
+
 
 .overlay-text {
   position: absolute;
   top: 75%; 
-  left: 20%; 
+  left: 50%; 
   transform: translate(-50%, -50%); 
   background-color: #000000; 
   color: #fff; 
@@ -133,3 +129,11 @@
   font-size: 20px; 
   text-align: center;
 }
+
+.wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1000px;
+  padding-right: 10px;
+  padding-left: 10px;
+  }
