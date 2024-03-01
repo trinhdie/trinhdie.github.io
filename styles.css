@@ -10,6 +10,10 @@
     height: auto;
     float: left;
   }
+
+  .right{
+    float: right;
+  }
   
   .text {
     font-size: 20px;
