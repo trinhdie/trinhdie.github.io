@@ -103,6 +103,9 @@
   background-color: #000000; opacity: 0.5; 
   color: #fff; 
   padding: 10px 20px; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  opacity: 1; 
+  color: rgba(255, 255, 255, 1);
   font-size: 20px; 
   text-align: center;
 }
