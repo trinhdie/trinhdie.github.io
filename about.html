@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Trinh Diep</title>
+  <meta name="description" content="About Trinh Diep — UX/UI Designer based in California." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <canvas id="space-canvas" aria-hidden="true"></canvas>
+
+  <!-- Ambient nebula orbs -->
+  <div class="about-orbs" aria-hidden="true">
+    <div class="about-orb about-orb-1"></div>
+    <div class="about-orb about-orb-2"></div>
+    <div class="about-orb about-orb-3"></div>
+  </div>
+
+  <!-- Cursor -->
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo">Trinh Diep</a>
+    <ul class="nav-links">
+      <li><a href="https://drive.google.com/uc?export=download&id=1H4ZhzP7mPR2rUBhalMkbQFD5JIogTUkN" class="nav-resume" target="_blank" rel="noopener">Resume ↓</a></li>
+      <li><a href="index.html">Index</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── STAR WARS SCROLL CRAWL ───────────────────────── -->
+  <section class="about-crawl-outer" id="aboutCrawlOuter" aria-label="About Trinh Diep">
+    <div class="about-crawl-sticky">
+
+      <!-- Fade masks — text dissolves in/out of deep space -->
+      <div class="about-fade-top" aria-hidden="true"></div>
+      <div class="about-fade-bot" aria-hidden="true"></div>
+
+      <!-- The floating ribbon — JS drives translateY with each scroll -->
+      <div class="about-crawl-ribbon" id="aboutCrawlRibbon">
+
+        <!-- ── About Me ───────────────────────────────── -->
+        <section class="credits-block">
+          <p class="credits-label">About Me</p>
+          <div class="credits-rule"></div>
+          <img
+            src="assets/img/Misc_9-51.png"
+            alt="Painted sky landscape — by Trinh Diep"
+            class="credits-artwork"
+          />
+        </section>
+
+        <!-- ── Bio ───────────────────────────────────── -->
+        <section class="credits-block">
+          <p class="credits-body">
+            I'm a multifaceted designer based in California. Though I began my career
+            unsure of my direction, my path led me through Operations, where I developed
+            a strong foundation in both data and visualization.
+          </p>
+          <p class="credits-body">
+            Today, I strive to collaborate closely with clients to create modern, distinctive
+            product experiences that merge analytical clarity with thoughtful design.
+          </p>
+        </section>
+
+        <!-- ── Skills ────────────────────────────────── -->
+        <section class="credits-block">
+          <p class="credits-label">Skills</p>
+          <div class="credits-rule"></div>
+          <div class="credits-pills">
+            <span class="skill-pill">UI / UX</span>
+            <span class="skill-pill">Product Design</span>
+            <span class="skill-pill">Web Design</span>
+            <span class="skill-pill">Data Analysis</span>
+            <span class="skill-pill">Figma</span>
+            <span class="skill-pill">Prototyping</span>
+            <span class="skill-pill">User Research</span>
+          </div>
+        </section>
+
+        <!-- ── Contact ────────────────────────────────── -->
+        <section class="credits-block" id="contact">
+          <p class="credits-label">Let's Work Together</p>
+          <div class="credits-rule"></div>
+          <h2 class="credits-contact-h">Contact<br><em>Me</em></h2>
+          <p class="credits-body">
+            Interested in working together? Available for contracts,
+            freelance, and full time.<br><br>
+            Reach me at&nbsp;<a href="mailto:trinhdiep260@gmail.com">trinhdiep260@gmail.com</a>
+          </p>
+        </section>
+
+        <!-- ── Form ───────────────────────────────────── -->
+        <section class="credits-block credits-form-wrap">
+          <form class="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="fname">First Name <span class="req">(required)</span></label>
+                <input class="form-input" id="fname" type="text" name="first" placeholder="Ada" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lname">Last Name</label>
+                <input class="form-input" id="lname" type="text" name="last" placeholder="Lovelace" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email <span class="req">(required)</span></label>
+              <input class="form-input" id="email" type="email" name="email" placeholder="hello@example.com" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="message">Message <span class="req">(required)</span></label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="Let's work together!" required></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Message →</button>
+          </form>
+        </section>
+
+        <!-- ── End card ───────────────────────────────── -->
+        <div class="credits-end">
+          <div class="credits-rule"></div>
+          <p class="credits-copyright">© 2026 Trinh Diep</p>
+          <div class="credits-links">
+            <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:trinhdiep260@gmail.com">trinhdiep260@gmail.com</a>
+          </div>
+        </div>
+
+      </div><!-- /about-crawl-ribbon -->
+    </div><!-- /about-crawl-sticky -->
+  </section><!-- /about-crawl-outer -->
+
+  <script src="main.js"></script>
+</body>
+</html>

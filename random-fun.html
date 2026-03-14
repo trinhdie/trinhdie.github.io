@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Fun — Trinh Diep</title>
+  <meta name="description" content="Illustration, 3D modeling, vibe coding and creative experiments by Trinh Diep." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Trinh Diep</a>
+    <ul class="nav-links">
+      <li><a href="https://drive.google.com/uc?export=download&id=1H4ZhzP7mPR2rUBhalMkbQFD5JIogTUkN" class="nav-resume" target="_blank" rel="noopener">Resume ↓</a></li>
+      <li><a href="index.html">Index</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────────────────────── -->
+  <section class="rf-hero">
+    <div class="reveal">
+      <p style="font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-bottom:24px; display:flex; align-items:center; gap:12px;">
+        <span style="display:block; width:24px; height:1px; background:currentColor;"></span>
+        Beyond the Brief
+      </p>
+      <h1 class="rf-hero-text">
+        A <span style="text-decoration:underline; text-decoration-color:var(--cream);">Multi-Faceted</span>
+        Designer Dabbling in Illustration and 3D Modeling.
+      </h1>
+    </div>
+    <div class="rf-hero-img reveal reveal-d1">
+      <img src="assets/img/Frame_2_24-106.png"
+           alt="Urban street scene in Japan" />
+    </div>
+  </section>
+
+  <!-- ─── VIBE CODE ─────────────────────────────────────── -->
+  <section style="padding:80px 48px; border-bottom:1px solid var(--border);">
+    <div class="rf-label reveal">Vibe Code</div>
+    <div class="rf-vibe reveal reveal-d1">
+      <!-- Dream tic-tac-toe: periwinkle pixel art game screenshot -->
+      <div class="rf-vibe-screen">
+        <video src="tictaktoe.mp4" autoplay loop muted playsinline
+               style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;"></video>
+      </div>
+      <div>
+        <h2 class="rf-vibe-title">Vibe code tic-tac-toe with custom characters</h2>
+        <p class="rf-vibe-desc">
+          A browser-based 2-player tic-tac-toe game built from scratch — custom pixel-art
+          star characters, a dreamy periwinkle aesthetic, and hand-coded game logic. Design
+          and development in one.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 3D MODELING HEADER ────────────────────────────── -->
+  <div style="padding:64px 48px 0; border-top:1px solid var(--border);">
+    <div class="rf-label reveal">3D Modeling</div>
+    <h2 class="reveal reveal-d1" style="font-family:'Syne',sans-serif; font-size:clamp(2.5rem,5vw,4.5rem); font-weight:800; letter-spacing:-0.04em; color:var(--text); line-height:0.95; margin-bottom:0;">
+      New Jeans × PPG<br><em style="font-style:italic; color:var(--muted);">Short Animation</em>
+    </h2>
+  </div>
+
+  <!-- Row 1 — New Jeans x PPG + gojo circle -->
+  <div class="rf-row reveal">
+    <!-- animation still — placeholder with gradient since no video URL -->
+    <div class="rf-row-img" style="width:52%; aspect-ratio:16/10; overflow:hidden; flex-shrink:0; background:#000;">
+      <video src="newjeans-ppg.mp4" autoplay loop muted playsinline
+             style="width:100%; height:100%; object-fit:cover; display:block;"></video>
+    </div>
+    <!-- gojo circle (real image, rotated) -->
+    <div style="flex:1; display:flex; justify-content:center; align-items:center;">
+      <div class="rf-row-img-circle rf-rotated" style="width:220px; height:220px;">
+        <img src="assets/img/Misc_25-140.png"
+             alt="3D character — New Jeans x PPG" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2 — Anime character Gojo in Disney style -->
+  <div style="padding:0 48px; border-top:1px solid var(--border);">
+    <div class="rf-label reveal" style="padding-top:64px;">Character Design</div>
+  </div>
+  <div class="rf-row reveal" style="border-top:none; padding-top:0; align-items:flex-start; gap:40px; flex-wrap:wrap;">
+    <!-- Gojo large circle (real) -->
+    <div class="rf-row-img-circle" style="width:300px; height:300px; flex-shrink:0;">
+      <img src="assets/img/Misc_25-186.png"
+           alt="Anime character Gojo — 3D Disney-style render" />
+    </div>
+    <!-- small figurines stacked (real, rotated) -->
+    <div class="rf-rotated" style="flex-shrink:0; margin-top:20px;">
+      <div style="width:130px; height:200px; border-radius:12px; overflow:hidden; border:1px solid var(--border2);">
+        <img src="assets/img/Misc_25-190.png"
+             alt="Stacked Disney-style figurines"
+             style="width:100%; height:100%; object-fit:cover;" />
+      </div>
+    </div>
+    <p class="rf-row-caption" style="align-self:center; max-width:280px;">
+      Anime character — <em style="font-style:italic; color:var(--cream);">Gojo</em> — in a Disney-inspired figurine
+    </p>
+    <!-- wireframe blob (real, rotated) -->
+    <div class="rf-rotated-neg" style="flex:1; min-width:180px; max-width:260px; margin-left:auto;">
+      <div style="border-radius:12px; overflow:hidden; aspect-ratio:2/3; border:1px solid var(--border2);">
+        <img src="assets/img/Misc_25-200.png"
+             alt="3D wireframe character mesh"
+             style="width:100%; height:100%; object-fit:cover;" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 3 — Food Collage -->
+  <div style="padding:0 48px; border-top:1px solid var(--border);">
+    <div class="rf-label reveal" style="padding-top:64px;">Food Models</div>
+  </div>
+  <div class="rf-row reveal" style="border-top:none; padding-top:0; align-items:center;">
+    <!-- food collage (real, rotated) -->
+    <div class="rf-rotated-neg" style="width:48%; flex-shrink:0;">
+      <div style="border-radius:16px; overflow:hidden; aspect-ratio:4/3; border:1px solid var(--border2);">
+        <img src="assets/img/Misc_25-204.png"
+             alt="Collage of food-inspired 3D models"
+             style="width:100%; height:100%; object-fit:cover;" />
+      </div>
+    </div>
+    <p class="rf-row-caption" style="flex:1; text-align:center;">
+      Collage of food&#8209;inspired<br>3D models
+    </p>
+  </div>
+
+  <!-- Row 4 — Popmart Crybaby -->
+  <div style="padding:0 48px; border-top:1px solid var(--border);">
+    <div class="rf-label reveal" style="padding-top:64px;">Collectible Design</div>
+  </div>
+  <div class="rf-row reveal" style="border-top:none; padding-top:0; align-items:center; flex-wrap:wrap; gap:40px;">
+    <!-- Crybaby pink (real) -->
+    <div style="width:200px; flex-shrink:0; border-radius:12px; overflow:hidden; border:1px solid var(--border2);">
+      <img src="assets/img/Misc_25-140.png"
+           alt="Popmart Crybaby inspired figurine — pink"
+           style="width:100%; display:block; object-fit:cover;" />
+    </div>
+    <p class="rf-row-caption" style="flex:1; min-width:200px;">
+      Popmart <em style="font-style:italic; color:var(--cream);">Crybaby</em><br>inspired figurines
+    </p>
+    <!-- Crybaby triangle (real, rotated) -->
+    <div class="rf-rotated" style="flex-shrink:0; width:280px;">
+      <img src="assets/img/Misc_25-241.png"
+           alt="Popmart Crybaby inspired figurine — triangle composition"
+           style="width:100%; display:block; border-radius:12px; border:1px solid var(--border2);" />
+    </div>
+  </div>
+
+  <!-- ─── BACK LINK ─────────────────────────────────────── -->
+  <div style="padding:60px 48px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
+    <a href="index.html" class="cs-nav-link">← Back to Index</a>
+    <a href="about.html" class="cs-nav-link">About Me →</a>
+  </div>
+
+  <!-- ─── FOOTER ───────────────────────────────────────── -->
+  <footer class="footer">
+    <p class="footer-left">© 2026 Trinh Diep</p>
+    <div class="footer-right">
+      <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-link">
+        <svg viewBox="0 0 24 24" aria-label="LinkedIn"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="mailto:trinhdiep260@gmail.com" class="footer-link">
+        trinhdiep260@gmail.com
+      </a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareGlow — Interactive Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:     #080808;
+      --text:   #F0EBE1;
+      --muted:  rgba(240,235,225,0.4);
+      --blue:   #1E7EB3;
+      --border: rgba(240,235,225,0.08);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ── Top bar ── */
+    .proto-bar {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 32px;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .proto-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
+    .proto-back:hover { color: var(--text); }
+    .proto-back svg { flex-shrink: 0; }
+    .proto-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .proto-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Stage ── */
+    .proto-stage {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      position: relative;
+    }
+
+    /* radial glow behind phone */
+    .proto-stage::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 60% at 50% 50%, rgba(30,126,179,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ── Phone shell ── */
+    .phone-shell {
+      position: relative;
+      width: 393px;
+      border-radius: 52px;
+      background: #111114;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.08),
+        0 0 0 10px #0a0a0c,
+        0 0 0 11px rgba(255,255,255,0.05),
+        0 40px 80px rgba(0,0,0,0.7);
+      overflow: hidden;
+    }
+
+    /* dynamic island cutout */
+    .phone-island {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 34px;
+      background: #000;
+      border-radius: 20px;
+      z-index: 10;
+    }
+
+    .phone-shell iframe {
+      display: block;
+      width: 393px;
+      height: 852px;
+      border: none;
+      border-radius: 52px;
+    }
+
+    /* ── Side buttons (decorative) ── */
+    .phone-btn-vol {
+      position: absolute;
+      left: -3px;
+      top: 130px;
+      width: 3px;
+      height: 36px;
+      background: #1a1a1e;
+      border-radius: 2px 0 0 2px;
+    }
+    .phone-btn-vol + .phone-btn-vol { top: 178px; }
+    .phone-btn-power {
+      position: absolute;
+      right: -3px;
+      top: 154px;
+      width: 3px;
+      height: 68px;
+      background: #1a1a1e;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* ── Footer note ── */
+    .proto-note {
+      padding: 16px 24px 28px;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+
+    /* ── Responsive: on small screens just show iframe directly ── */
+    @media (max-width: 500px) {
+      .proto-bar { padding: 16px 20px; }
+      .proto-stage { padding: 0; }
+      .phone-shell {
+        width: 100vw;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .phone-island { display: none; }
+      .phone-shell iframe {
+        width: 100vw;
+        height: 100dvh;
+        border-radius: 0;
+      }
+      .phone-btn-vol,
+      .phone-btn-power { display: none; }
+      .proto-note { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="proto-bar">
+    <a href="careglow.html" class="proto-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to Case Study
+    </a>
+    <span class="proto-title">CareGlow</span>
+    <span class="proto-label">Interactive Prototype</span>
+  </header>
+
+  <main class="proto-stage">
+    <div class="phone-shell">
+      <div class="phone-island"></div>
+      <div class="phone-btn-vol"></div>
+      <div class="phone-btn-vol"></div>
+      <div class="phone-btn-power"></div>
+      <iframe
+        src="../healthcare-app/index.html"
+        title="CareGlow App Prototype"
+        allow="camera; microphone"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </main>
+
+  <p class="proto-note">Scroll or tap inside the phone to interact &nbsp;·&nbsp; All data is stored locally in your browser</p>
+
+</body>
+</html>

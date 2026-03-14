@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trinh Diep — UX/UI Designer</title>
+  <meta name="description" content="Trinh Diep — UX/UI Designer based in California. Web, Product, Analysis." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <canvas id="space-canvas" aria-hidden="true"></canvas>
+
+  <!-- Preloader -->
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader-text">
+      <span>TD</span>
+    </div>
+  </div>
+
+  <!-- Cursor -->
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo">Trinh Diep</a>
+    <ul class="nav-links">
+      <li><a href="https://drive.google.com/uc?export=download&id=1H4ZhzP7mPR2rUBhalMkbQFD5JIogTUkN" class="nav-resume" target="_blank" rel="noopener">Resume ↓</a></li>
+      <li><a href="index.html">Index</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────────────────────── -->
+  <section class="hero" aria-label="Introduction">
+    <div class="hero-orbs" aria-hidden="true">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
+      <div class="hero-orb hero-orb-4"></div>
+      <div class="hero-orb hero-orb-5"></div>
+      <div class="hero-stars"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-tag" aria-label="Availability status">
+        <span class="hero-tag-dot"></span>
+        Available for Work
+      </div>
+      <h1 class="hero-name" aria-label="Trinh Diep">
+        <span class="hero-name-line"><span>TRINH</span></span>
+        <span class="hero-name-line"><span>DIEP.</span></span>
+      </h1>
+      <div class="hero-bottom">
+        <p class="hero-sub">
+          UX/UI &nbsp;·&nbsp; Product &nbsp;·&nbsp; Web &nbsp;·&nbsp; Analysis<br>
+          <strong>Based in California</strong>
+        </p>
+        <div class="hero-scroll" aria-hidden="true">
+          <div class="hero-scroll-line"></div>
+          Scroll
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TICKER ────────────────────────────────────────── -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item">UX Design<span class="ticker-sep">—</span></span>
+      <span class="ticker-item">UI Design<span class="ticker-sep">—</span></span>
+      <span class="ticker-item">Product Thinking<span class="ticker-sep">—</span></span>
+      <span class="ticker-item">Research<span class="ticker-sep">—</span></span>
+      <span class="ticker-item">Prototyping<span class="ticker-sep">—</span></span>
+      <span class="ticker-item">Data Analysis<span class="ticker-sep">—</span></span>
+      <span class="ticker-item">Accessibility<span class="ticker-sep">—</span></span>
+      <span class="ticker-item">Based in California<span class="ticker-sep">—</span></span>
+      <!-- duplicate -->
+      <span class="ticker-item">UX Design<span class="ticker-sep">—</span></span>
+      <span class="ticker-item">UI Design<span class="ticker-sep">—</span></span>
+      <span class="ticker-item">Product Thinking<span class="ticker-sep">—</span></span>
+      <span class="ticker-item">Research<span class="ticker-sep">—</span></span>
+      <span class="ticker-item">Prototyping<span class="ticker-sep">—</span></span>
+      <span class="ticker-item">Data Analysis<span class="ticker-sep">—</span></span>
+      <span class="ticker-item">Accessibility<span class="ticker-sep">—</span></span>
+      <span class="ticker-item">Based in California<span class="ticker-sep">—</span></span>
+    </div>
+  </div>
+
+  <!-- ─── WORKS (SPACE CRAWL) ─────────────────────────── -->
+  <section class="crawl-outer" id="crawlOuter" aria-label="Selected Works">
+    <div class="crawl-sticky">
+
+      <!-- HUD overlay -->
+      <div class="crawl-hud" aria-hidden="true">
+        <span class="crawl-hud-label">Selected Works</span>
+        <span class="crawl-hud-count"><span id="wsCur">01</span> / 04</span>
+      </div>
+
+      <!-- Progress dots -->
+      <div class="ws-dots" aria-hidden="true">
+        <span class="ws-dot active"></span>
+        <span class="ws-dot"></span>
+        <span class="ws-dot"></span>
+        <span class="ws-dot"></span>
+      </div>
+
+      <!-- Fade masks — create the "emerging from / receding into space" feel -->
+      <div class="crawl-fade-top" aria-hidden="true"></div>
+      <div class="crawl-fade-bot" aria-hidden="true"></div>
+
+      <!-- Scrolling ribbon — normal order 01→04, ribbon moves upward -->
+      <div class="crawl-ribbon" id="crawlRibbon">
+
+        <!-- Intro -->
+        <div class="crawl-intro">
+          <p class="crawl-intro-label">Selected Works</p>
+          <p class="crawl-intro-count">04 Projects</p>
+          <div class="crawl-intro-rule"></div>
+        </div>
+
+        <!-- 01 — CareGlow -->
+        <div class="crawl-project">
+          <span class="crawl-num">01 — Healthcare</span>
+          <a href="careglow.html" class="crawl-img-wrap">
+            <img src="assets/img/Realme_12_I94-107;172-550.png" alt="CareGlow app on phone" class="crawl-img" />
+          </a>
+          <h3 class="crawl-title"><a href="careglow.html">CareGlow</a></h3>
+          <p class="crawl-desc">A patient-centered healthcare companion app — appointments, insurance billing, and multilingual support, all in one place.</p>
+          <div class="crawl-tags">
+            <span class="tag">UI/UX</span>
+            <span class="tag">Mobile</span>
+            <span class="tag">Healthcare</span>
+          </div>
+          <a href="careglow.html" class="crawl-cta">View Case Study ↗</a>
+        </div>
+
+        <!-- 02 — HydraVoyage -->
+        <div class="crawl-project">
+          <span class="crawl-num">02 — Sustainability</span>
+          <a href="hydravoyage.html" class="crawl-img-wrap">
+            <img src="assets/img/image_207-782.png" alt="HydraVoyage — green leaf macro" class="crawl-img" />
+          </a>
+          <h3 class="crawl-title"><a href="hydravoyage.html">HydraVoyage</a></h3>
+          <p class="crawl-desc">Approaching the unmanned transit of hydrogen fuel. Sustainable commercial transportation, redesigned.</p>
+          <div class="crawl-tags">
+            <span class="tag">UI/UX</span>
+            <span class="tag">Product</span>
+            <span class="tag">Sustainability</span>
+          </div>
+          <a href="hydravoyage.html" class="crawl-cta">View Case Study ↗</a>
+        </div>
+
+        <!-- 03 — 7-Eleven Redesign -->
+        <div class="crawl-project">
+          <span class="crawl-num">03 — Redesign</span>
+          <a href="redesign.html" class="crawl-img-wrap">
+            <img src="assets/img/Frame_2_339-416.png" alt="7-Eleven app redesign" class="crawl-img" />
+          </a>
+          <h3 class="crawl-title"><a href="redesign.html">7-Eleven Redesign</a></h3>
+          <p class="crawl-desc">A critical UX audit of 7-Eleven's mobile app — untangling confusing flows, reducing friction at checkout, and rebuilding trust with the user.</p>
+          <div class="crawl-tags">
+            <span class="tag">UI/UX</span>
+            <span class="tag">Mobile</span>
+            <span class="tag">Redesign</span>
+          </div>
+          <a href="redesign.html" class="crawl-cta">View Case Study ↗</a>
+        </div>
+
+        <!-- 04 — Airbnb Insights -->
+        <div class="crawl-project">
+          <span class="crawl-num">04 — Data Analysis</span>
+          <a href="airbnb.html" class="crawl-img-wrap">
+            <img src="assets/img/Mockup_30_397-2997.png" alt="Airbnb Insights — laptop mockup" class="crawl-img" />
+          </a>
+          <h3 class="crawl-title"><a href="airbnb.html">Airbnb Insights</a></h3>
+          <p class="crawl-desc">End-to-end data analysis of 22,000+ NYC listings — uncovering what drives positive reviews and translating findings into UX improvements.</p>
+          <div class="crawl-tags">
+            <span class="tag">Data Analysis</span>
+            <span class="tag">UI/UX</span>
+            <span class="tag">Web</span>
+          </div>
+          <a href="airbnb.html" class="crawl-cta">View Case Study ↗</a>
+        </div>
+
+      </div><!-- /crawl-ribbon -->
+    </div><!-- /crawl-sticky -->
+  </section><!-- /crawl-outer -->
+
+  <!-- ─── RANDOM FUN CTA ───────────────────────────────── -->
+  <section class="rf-cta reveal" style="margin: 0; border-top: 1px solid var(--border);">
+    <a href="random-fun.html" style="display:grid; grid-template-columns:1fr 1fr; text-decoration:none; color:inherit; cursor:none;">
+      <div style="padding:60px 48px; display:flex; flex-direction:column; justify-content:center; gap:20px; border-right:1px solid var(--border);">
+        <p style="font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted);">Beyond the Brief</p>
+        <h2 style="font-family:'Syne',sans-serif; font-size:clamp(2.2rem,4.5vw,4rem); font-weight:800; letter-spacing:-0.03em; color:var(--text); line-height:1;">Random<br><em style="font-style:italic; color:var(--cream);">Fun</em></h2>
+        <p style="font-size:0.8rem; line-height:1.8; color:var(--muted); max-width:380px;">Illustration, 3D modeling, vibe coding, and creative experiments beyond the design brief.</p>
+        <span style="font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--cream); display:flex; align-items:center; gap:10px;">Explore &nbsp;↗</span>
+      </div>
+      <div style="overflow:hidden; aspect-ratio:16/9; position:relative;">
+        <img src="assets/img/Misc_25-195.png"
+             alt="3D renders — bubble tea and glassware"
+             style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.8s cubic-bezier(0.16,1,0.3,1);"
+             class="rf-cta-img" />
+      </div>
+    </a>
+  </section>
+
+  <!-- ─── CTA ───────────────────────────────────────────── -->
+  <section class="cta reveal">
+    <p class="cta-text">
+      Want to build something<br><em>together?</em>
+    </p>
+    <a href="about.html#contact" class="cta-btn">
+      Get in touch &nbsp;→
+    </a>
+  </section>
+
+  <!-- ─── FOOTER ───────────────────────────────────────── -->
+  <footer class="footer">
+    <p class="footer-left">© 2026 Trinh Diep</p>
+    <div class="footer-right">
+      <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-link">
+        <svg viewBox="0 0 24 24" aria-label="LinkedIn"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="mailto:trinhdiep260@gmail.com" class="footer-link">
+        trinhdiep260@gmail.com
+      </a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

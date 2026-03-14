@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareGlow — Trinh Diep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Lexend:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── CareGlow hero glow */
+    .cs-hero { background: linear-gradient(160deg, #0a0e1a 0%, #0d1b3e 50%, #0a0e1a 100%); }
+    .cs-hero-glow { background: radial-gradient(ellipse 55% 70% at 60% 45%, rgba(30,126,179,0.12) 0%, transparent 100%); }
+
+    /* ── Site Map diagram */
+    .cg-sitemap { display:flex; flex-direction:column; align-items:center; }
+    .cg-sm-row { display:flex; justify-content:center; }
+    .cg-sm-row--bottom { gap:16px; align-items:flex-start; }
+    .cg-sm-node {
+      border: 1px solid var(--border2);
+      border-radius: 10px;
+      padding: 18px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: var(--bg2);
+    }
+    .cg-sm-node--root { min-width:260px; border-color:rgba(30,126,179,0.4); background:rgba(30,126,179,0.06); }
+    .cg-sm-node--mid  { min-width:260px; border-color:rgba(48,89,89,0.5); background:rgba(48,89,89,0.06); }
+    .cg-sm-node--leaf { flex:1; min-width:0; }
+    .cg-sm-node-label { font-family:'Syne',sans-serif; font-size:0.82rem; font-weight:700; color:var(--text); }
+    .cg-sm-node-sub   { font-size:0.7rem; color:var(--muted); }
+    .cg-sm-node-icon  { font-size:1.1rem; margin-bottom:4px; }
+    .cg-sm-node-list  { margin:8px 0 0; padding:0 0 0 14px; list-style:disc; }
+    .cg-sm-node-list li { font-size:0.72rem; line-height:1.7; color:var(--muted); }
+    .cg-sm-connector--v {
+      width:1px; height:32px;
+      background: linear-gradient(to bottom, rgba(30,126,179,0.5), rgba(48,89,89,0.5));
+    }
+    .cg-sm-connector--branch {
+      width:100%; height:32px;
+      position:relative;
+      margin-bottom:0;
+    }
+    .cg-sm-connector--branch::before {
+      content:'';
+      position:absolute;
+      left:50%; top:0;
+      width:1px; height:100%;
+      background:rgba(48,89,89,0.5);
+    }
+    @media (max-width:900px) {
+      .cg-sm-row--bottom { flex-direction:column; align-items:center; }
+      .cg-sm-node--leaf  { width:100%; max-width:340px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Trinh Diep</a>
+    <ul class="nav-links">
+      <li><a href="https://drive.google.com/uc?export=download&id=1H4ZhzP7mPR2rUBhalMkbQFD5JIogTUkN" class="nav-resume" target="_blank" rel="noopener">Resume ↓</a></li>
+      <li><a href="index.html">Index</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────────────────────── -->
+  <header class="cs-hero">
+    <div class="cs-hero-bg">
+      <img src="assets/img/Hero_25-214.png"
+           alt="" aria-hidden="true" />
+    </div>
+    <div class="cs-hero-glow"></div>
+    <div class="cs-hero-inner">
+      <p class="cs-eyebrow">Case Study &nbsp;/&nbsp; 01</p>
+      <h1 class="cs-title">CareGlow</h1>
+      <div class="cs-meta">
+        <div>
+          <p class="cs-meta-label">Role</p>
+          <p class="cs-meta-value">UX/UI Designer</p>
+        </div>
+        <div>
+          <p class="cs-meta-label">Platform</p>
+          <p class="cs-meta-value">iOS Mobile</p>
+        </div>
+        <div>
+          <p class="cs-meta-label">Focus</p>
+          <p class="cs-meta-value">Healthcare · Accessibility</p>
+        </div>
+        <div>
+          <p class="cs-meta-label">Tools</p>
+          <p class="cs-meta-value">Figma · Figma Make · Claude (prototyping)</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── BODY ─────────────────────────────────────────── -->
+  <article class="cs-body">
+
+    <!-- Overview -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Overview</p>
+      <h2 class="cs-section-title">Mobile first for accessibility</h2>
+      <p class="cs-section-text">
+        CareGlow is a patient-centered healthcare companion app designed to simplify how
+        people manage their medical lives. Built-in translation ensures it supports users
+        of all languages — book appointments, manage insurance, estimate costs — all in
+        one place, with clarity and confidence.
+      </p>
+    </div>
+
+    <!-- Real device gallery from Figma -->
+    <div class="cg-gallery reveal">
+      <img src="assets/img/Realme_12_I94-107;172-550.png"
+           alt="CareGlow app on Realme 12"
+           style="width:42%; border-radius:12px;" />
+      <img src="assets/img/Realme_11_172-525.png"
+           alt="CareGlow app on Realme 11"
+           style="flex:1; border-radius:12px;" />
+    </div>
+
+    <!-- Full-width Realme 11 gallery shot -->
+    <div class="reveal" style="margin-bottom:72px; border-radius:12px; overflow:hidden; border:1px solid var(--border2);">
+      <img src="assets/img/Nokia_XR21_275-1741.png"
+           alt="CareGlow — Realme 11 lifestyle"
+           style="width:100%; display:block; object-fit:cover;" />
+    </div>
+
+    <!-- Nokia XR21 device mockup -->
+    <div class="reveal" style="margin-bottom:72px; border-radius:12px; overflow:hidden; border:1px solid var(--border2); max-width:700px; margin-left:auto; margin-right:auto;">
+      <img src="assets/img/Nokia_XR21_I434-1591;330-652.png"
+           alt="CareGlow app on Nokia XR21"
+           style="width:100%; display:block; object-fit:cover;" />
+    </div>
+
+    <!-- Prototype CTA -->
+    <div class="reveal" style="text-align:center; margin-bottom:72px;">
+      <a href="https://careglow.netlify.app"
+         target="_blank" rel="noopener"
+         style="display:inline-flex; align-items:center; gap:12px; padding:16px 32px; border:1px solid var(--blue); border-radius:6px; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--blue); text-decoration:none; transition:background 0.2s, color 0.2s;"
+         onmouseover="this.style.background='var(--blue)';this.style.color='#fff';"
+         onmouseout="this.style.background='transparent';this.style.color='var(--blue)';">
+        View Interactive Prototype &nbsp;↗
+      </a>
+    </div>
+
+    <!-- Quote -->
+    <div class="cs-quote-block reveal">
+      <p class="cs-quote">
+        "After spending 2 years in the healthcare industry, it became clear that surprise
+        billing is patient's biggest concern — creating a breakdown of trust between
+        patients, insurance, and providers, with no obvious point of accountability."
+      </p>
+      <p class="cs-quote-attr">— Research Insight</p>
+    </div>
+
+    <!-- Problem -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">The Problem</p>
+      <h2 class="cs-section-title">Healthcare friction begins with billing</h2>
+      <p class="cs-section-text">
+        Extensive survey research and interviews with real providers and patients revealed
+        that most adults struggle most with health insurance — specifically a lack of
+        pricing transparency. Young adults and elderly people have become particularly
+        vulnerable, regardless of background.
+      </p>
+      <div class="cs-info-grid">
+        <div class="cs-info-card reveal">
+          <div class="cs-info-card-icon">🏥</div>
+          <p class="cs-info-card-title">Front Desk Overload</p>
+          <p class="cs-info-card-text">Medical assistants can't resolve billing questions — patients wait months for resolution.</p>
+        </div>
+        <div class="cs-info-card reveal reveal-d1">
+          <div class="cs-info-card-icon">📋</div>
+          <p class="cs-info-card-title">Insurance Opacity</p>
+          <p class="cs-info-card-text">Patients delay appointments over billing fears, leading to irregular checkups and reduced care quality.</p>
+        </div>
+        <div class="cs-info-card reveal reveal-d2">
+          <div class="cs-info-card-icon">🌐</div>
+          <p class="cs-info-card-title">Language Barriers</p>
+          <p class="cs-info-card-text">Non-English speakers face compounded friction in a system not designed for their needs.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Process -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Process</p>
+      <h2 class="cs-section-title">Sketch → Sitemap → Wire → Build</h2>
+      <div class="cs-wireframe-block">
+        <div>
+          <p class="cs-section-text">
+            Initial ideation began with paper sketches, rapidly translating user needs
+            into low-fidelity wireframes. The site map guided information architecture,
+            ensuring a logical patient journey from onboarding through appointment
+            management and billing.
+          </p>
+          <p class="cs-section-text" style="margin-top:16px;">
+            Low-fidelity wireframes were tested with real users to validate core flows
+            before moving to high-fidelity screens.
+          </p>
+        </div>
+        <div class="cs-wireframe-img" style="border-radius:12px; overflow:hidden; border:1px solid var(--border2);">
+          <img src="assets/img/sketch_178-1057.png"
+               alt="CareGlow paper sketch — early ideation"
+               style="width:100%; display:block; object-fit:cover;" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Low Fidelity Wireframes -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Low Fidelity Wireframes</p>
+      <h2 class="cs-section-title">Paper to pixels — testing before building</h2>
+      <p class="cs-section-text">
+        Lo-fi wireframes were created for every core screen before any visual design
+        began. Each screen was tested with real users to validate information hierarchy,
+        flow logic, and accessibility before moving to high-fidelity.
+      </p>
+    </div>
+
+    <!-- Wireframe grid — Row 1 -->
+    <div class="reveal" style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:16px;">
+      <div style="border-radius:10px; overflow:hidden; border:1px solid var(--border2);">
+        <img src="assets/img/Home_1_438-1560.png"
+             alt="CareGlow lo-fi wireframe — Home screen v1"
+             style="width:100%; display:block;" />
+      </div>
+      <div style="border-radius:10px; overflow:hidden; border:1px solid var(--border2);">
+        <img src="assets/img/Home_2_438-1567.png"
+             alt="CareGlow lo-fi wireframe — Home screen v2"
+             style="width:100%; display:block;" />
+      </div>
+      <div style="border-radius:10px; overflow:hidden; border:1px solid var(--border2);">
+        <img src="assets/img/Acct_Info_1_438-1562.png"
+             alt="CareGlow lo-fi wireframe — Account Info"
+             style="width:100%; display:block;" />
+      </div>
+      <div style="border-radius:10px; overflow:hidden; border:1px solid var(--border2);">
+        <img src="assets/img/Price_Breakdown_1_438-1568.png"
+             alt="CareGlow lo-fi wireframe — Price Breakdown"
+             style="width:100%; display:block;" />
+      </div>
+    </div>
+    <!-- Wireframe grid — Row 2 -->
+    <div class="reveal" style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:72px;">
+      <div style="border-radius:10px; overflow:hidden; border:1px solid var(--border2);">
+        <img src="assets/img/All_Tasks_1_438-1570.png"
+             alt="CareGlow lo-fi wireframe — All Tasks"
+             style="width:100%; display:block;" />
+      </div>
+      <div style="border-radius:10px; overflow:hidden; border:1px solid var(--border2);">
+        <img src="assets/img/Calendar2_1_438-1572.png"
+             alt="CareGlow lo-fi wireframe — Calendar"
+             style="width:100%; display:block;" />
+      </div>
+      <div style="border-radius:10px; overflow:hidden; border:1px solid var(--border2);">
+        <img src="assets/img/Appointment_Confirm_1_438-1566.png"
+             alt="CareGlow lo-fi wireframe — Appointment Confirm"
+             style="width:100%; display:block;" />
+      </div>
+      <div style="border-radius:10px; overflow:hidden; border:1px solid var(--border2);">
+        <img src="assets/img/Appointment_Confirmation_1_438-1559.png"
+             alt="CareGlow lo-fi wireframe — Appointment Confirmation"
+             style="width:100%; display:block;" />
+      </div>
+    </div>
+
+    <!-- Information Architecture / Site Map -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Information Architecture</p>
+      <h2 class="cs-section-title">Site Map</h2>
+      <p class="cs-section-text">
+        The site map was built around a single core insight: patients don't think in
+        system categories — they think in tasks. The architecture reflects this by
+        surfacing the four most critical actions from the dashboard and keeping
+        navigation shallow.
+      </p>
+
+      <!-- Site map diagram -->
+      <div class="cg-sitemap reveal" style="margin-top:36px;">
+        <!-- Top node -->
+        <div class="cg-sm-row cg-sm-row--top">
+          <div class="cg-sm-node cg-sm-node--root">
+            <span class="cg-sm-node-label">Home Screen</span>
+            <span class="cg-sm-node-sub">Navbar · Header · Patient Dashboard</span>
+          </div>
+        </div>
+        <!-- Connector -->
+        <div class="cg-sm-connector cg-sm-connector--v"></div>
+        <!-- Mid node -->
+        <div class="cg-sm-row cg-sm-row--mid">
+          <div class="cg-sm-node cg-sm-node--mid">
+            <span class="cg-sm-node-label">Patient Dashboard</span>
+            <span class="cg-sm-node-sub">Header · Fun Facts · Quick Links</span>
+          </div>
+        </div>
+        <!-- Branching connector -->
+        <div class="cg-sm-connector cg-sm-connector--branch"></div>
+        <!-- Bottom row — 4 sub-pages -->
+        <div class="cg-sm-row cg-sm-row--bottom">
+          <div class="cg-sm-node cg-sm-node--leaf">
+            <span class="cg-sm-node-icon">⚙️</span>
+            <span class="cg-sm-node-label">Acct Info &amp; Settings</span>
+            <ul class="cg-sm-node-list">
+              <li>Insurance history &amp; coverage</li>
+              <li>Saved providers</li>
+              <li>Appointment history</li>
+              <li>Edit &amp; Sign out</li>
+            </ul>
+          </div>
+          <div class="cg-sm-node cg-sm-node--leaf">
+            <span class="cg-sm-node-icon">📅</span>
+            <span class="cg-sm-node-label">Patient Appt Scheduler</span>
+            <ul class="cg-sm-node-list">
+              <li>Interactive calendar</li>
+              <li>Provider selection</li>
+              <li>Pricing estimate</li>
+              <li>Confirmation screen</li>
+            </ul>
+          </div>
+          <div class="cg-sm-node cg-sm-node--leaf">
+            <span class="cg-sm-node-icon">💰</span>
+            <span class="cg-sm-node-label">Bill Calculator</span>
+            <ul class="cg-sm-node-list">
+              <li>Office visit estimator</li>
+              <li>Insurance-based calc</li>
+              <li>Estimated cost display</li>
+              <li>Redirect to scheduler</li>
+            </ul>
+          </div>
+          <div class="cg-sm-node cg-sm-node--leaf">
+            <span class="cg-sm-node-icon">✓</span>
+            <span class="cg-sm-node-label">Tasks</span>
+            <ul class="cg-sm-node-list">
+              <li>Notes &amp; reminders</li>
+              <li>Rich text editor</li>
+              <li>Calendar sync</li>
+              <li>Trash / Archive</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Style Guide -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Style Guide</p>
+      <h2 class="cs-section-title">Visual System</h2>
+      <p class="cs-section-text">
+        Warm clinical confidence — a vibrant pink primary paired with a trustworthy
+        blue, grounded by deep navy authority and softened by sage green.
+        Together they signal care that is both credible and human.
+      </p>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FF3399; box-shadow: 0 0 32px rgba(255,51,153,0.35);"></div>
+          <div class="swatch-info"><p class="swatch-name">Pink Primary</p><p class="swatch-hex">#FF3399</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#446DB1;"></div>
+          <div class="swatch-info"><p class="swatch-name">Trust Blue</p><p class="swatch-hex">#446DB1</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#71A995;"></div>
+          <div class="swatch-info"><p class="swatch-name">Sage Green</p><p class="swatch-hex">#71A995</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#304F8C;"></div>
+          <div class="swatch-info"><p class="swatch-name">Deep Navy</p><p class="swatch-hex">#304F8C</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Typography -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Typography</p>
+      <h2 class="cs-section-title">Type system — Care You Can See</h2>
+      <p class="cs-section-text">
+        Two typefaces define CareGlow's voice: a literary serif for warmth and
+        authority at display scale, and a clean geometric sans for accessible,
+        readable interface copy.
+      </p>
+      <div class="h2-type-grid">
+        <div class="h2-type-card">
+          <div class="h2-type-sample" style="font-family: 'Fraunces', Georgia, serif; font-weight: 700;">Fraunces</div>
+          <p class="h2-type-label">Display / Hero</p>
+          <p class="h2-type-name">Fraunces Bold — H1 (60px), H2 (40px), hero callouts</p>
+        </div>
+        <div class="h2-type-card">
+          <div class="h2-type-sample" style="font-family: 'Lexend', Arial, sans-serif; font-weight: 400;">Lexend</div>
+          <p class="h2-type-label">Body / Interface</p>
+          <p class="h2-type-name">Lexend Regular — Body 1 (32px), Body 2 (24px), Body 3 (20px)</p>
+        </div>
+        <div class="h2-type-card">
+          <div class="h2-type-sample" style="font-family: 'Lexend', Arial, sans-serif; font-weight: 600; font-size: 1.4rem;">CareGlow</div>
+          <p class="h2-type-label">Brand / Logo</p>
+          <p class="h2-type-name">Lexend SemiBold — wordmark, nav, primary labels</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <div class="cs-nav-links reveal">
+      <a href="index.html" class="cs-nav-link">← Index</a>
+      <a href="hydravoyage.html" class="cs-nav-link">Next: HydraVoyage →</a>
+    </div>
+
+  </article>
+
+  <footer class="footer">
+    <p class="footer-left">© 2026 Trinh Diep</p>
+    <div class="footer-right">
+      <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-link">
+        <svg viewBox="0 0 24 24" aria-label="LinkedIn"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="mailto:trinhdiep260@gmail.com" class="footer-link">trinhdiep260@gmail.com</a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

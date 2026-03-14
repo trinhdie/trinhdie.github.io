@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Airbnb Insights — Trinh Diep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .cs-hero { background: linear-gradient(160deg, #0e0608 0%, #1a080a 50%, #0e0608 100%); }
+    .cs-hero-glow { background: radial-gradient(ellipse 60% 70% at 55% 45%, rgba(255,90,95,0.22) 0%, rgba(255,50,60,0.08) 55%, transparent 100%); }
+
+    .ab-trumpet {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+      margin-bottom: 40px;
+      padding: 40px;
+      background: rgba(255,90,95,0.04);
+      border: 1px solid rgba(255,90,95,0.12);
+      border-radius: 8px;
+    }
+    .ab-trumpet img {
+      width: 180px;
+      flex-shrink: 0;
+    }
+
+    .ab-tools-grid {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .ab-tool-pill {
+      padding: 8px 18px;
+      border: 1px solid var(--border2);
+      border-radius: 100px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+
+    .ab-screens {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .ab-screen {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border2);
+    }
+    .ab-screen img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    .ab-screen-label {
+      padding: 9px 14px;
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ab-laptop {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border2);
+      margin-bottom: 40px;
+    }
+    .ab-laptop img {
+      width: 100%;
+      display: block;
+    }
+
+    .ab-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border: 1px solid var(--border2);
+      border-radius: 4px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .ab-link-btn:hover {
+      border-color: #FF5A5F;
+      color: #FF5A5F;
+    }
+
+    .ab-insight-list {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .ab-insight-list li {
+      font-size: 0.82rem;
+      line-height: 1.85;
+      color: var(--muted);
+      padding-left: 20px;
+      position: relative;
+    }
+    .ab-insight-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #FF5A5F;
+    }
+
+    .ab-video-wrap {
+      margin-bottom: 40px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border2);
+      background: #080808;
+    }
+    .ab-video-wrap video {
+      width: 100%;
+      display: block;
+    }
+
+    @media (max-width: 640px) {
+      .ab-screens { grid-template-columns: 1fr; }
+      .ab-trumpet { flex-direction: column; }
+      .ab-trumpet img { width: 120px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Trinh Diep</a>
+    <ul class="nav-links">
+      <li><a href="https://drive.google.com/uc?export=download&id=1H4ZhzP7mPR2rUBhalMkbQFD5JIogTUkN" class="nav-resume" target="_blank" rel="noopener">Resume ↓</a></li>
+      <li><a href="index.html">Index</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────────────────────── -->
+  <header class="cs-hero">
+    <div class="cs-hero-bg">
+      <img src="assets/img/unsplash_YDarsL40neU_397-2869.png"
+           alt="" aria-hidden="true" />
+    </div>
+    <div class="cs-hero-glow"></div>
+    <div class="cs-hero-inner">
+      <p class="cs-eyebrow">Case Study &nbsp;/&nbsp; 04</p>
+      <h1 class="cs-title">Airbnb<br>Insights</h1>
+      <div class="cs-meta">
+        <div>
+          <p class="cs-meta-label">Role</p>
+          <p class="cs-meta-value">UX/UI Designer · Data Analyst</p>
+        </div>
+        <div>
+          <p class="cs-meta-label">Platform</p>
+          <p class="cs-meta-value">Web · Desktop</p>
+        </div>
+        <div>
+          <p class="cs-meta-label">Focus</p>
+          <p class="cs-meta-value">Data Analysis · UX Strategy</p>
+        </div>
+        <div>
+          <p class="cs-meta-label">Tools</p>
+          <p class="cs-meta-value">Tableau · R Studio · Figma · Lovable</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── BODY ─────────────────────────────────────────── -->
+  <article class="cs-body">
+
+    <!-- Overview -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Overview</p>
+      <h2 class="cs-section-title">How can Airbnb get more positive reviews?</h2>
+      <p class="cs-section-text">
+        An end-to-end data analysis and UX project exploring what drives positive reviews
+        on Airbnb. Starting from a public dataset of 30,478 NYC listings, this project
+        combines statistical analysis, competitive benchmarking, and UX redesign proposals
+        to surface actionable improvements for both hosts and the platform.
+      </p>
+    </div>
+
+    <!-- Tools -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Methodology &amp; Tools</p>
+      <h2 class="cs-section-title">Data to design, end-to-end</h2>
+      <p class="cs-section-text">
+        The workflow moved from raw data through analysis to design — each tool chosen
+        to match the stage of the work.
+      </p>
+      <div class="ab-tools-grid">
+        <span class="ab-tool-pill">Excel — Data Cleansing</span>
+        <span class="ab-tool-pill">R Studio — Regression Analysis</span>
+        <span class="ab-tool-pill">Tableau — Visualization</span>
+        <span class="ab-tool-pill">Perplexity AI — Market Research</span>
+        <span class="ab-tool-pill">Figma — UX Design</span>
+        <span class="ab-tool-pill">Lovable — Interactive Prototype</span>
+      </div>
+      <div class="cs-info-grid" style="margin-top:32px;">
+        <div class="cs-info-card reveal">
+          <div class="cs-info-card-icon">🧹</div>
+          <p class="cs-info-card-title">Data Cleansing</p>
+          <p class="cs-info-card-text">Excel used to remove missing values, duplicates, and outliers. 30,478 listings cleaned to a working set of 22,152 records.</p>
+        </div>
+        <div class="cs-info-card reveal reveal-d1">
+          <div class="cs-info-card-icon">📈</div>
+          <p class="cs-info-card-title">Statistical Analysis</p>
+          <p class="cs-info-card-text">R Studio used to identify correlated variables and run multiple linear regression to isolate the factors most predictive of review score.</p>
+        </div>
+        <div class="cs-info-card reveal reveal-d2">
+          <div class="cs-info-card-icon">🎨</div>
+          <p class="cs-info-card-title">UX Design</p>
+          <p class="cs-info-card-text">Insights translated into Figma UI proposals and an interactive Lovable prototype — bridging data findings and product design.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Problem Statement -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Problem Statement</p>
+      <h2 class="cs-section-title">The review gap</h2>
+    </div>
+
+    <div class="ab-trumpet reveal">
+      <img src="assets/img/Review_and_positive_reactions_with_trumpet_397-2935.png"
+           alt="Review and positive reactions illustration" />
+      <p class="cs-section-text" style="margin:0;">
+        Despite being the world's leading short-term rental platform, Airbnb's review
+        distribution is uneven — certain property types, neighborhoods, and host behaviors
+        consistently underperform. The question: <em style="color:var(--cream); font-style:italic;">what actually drives a positive review,
+        and how can the platform and its hosts act on that data?</em>
+      </p>
+    </div>
+
+    <!-- Insights -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Key Insights</p>
+      <h2 class="cs-section-title">What the data revealed</h2>
+      <p class="cs-section-text">
+        After regression analysis on 22,152 cleansed NYC listings, five statistically
+        significant patterns emerged.
+      </p>
+      <ul class="ab-insight-list">
+        <li>Price has a significant positive correlation with score — for every dollar increase in price, there is a ~0.5% increase in review score.</li>
+        <li>Entire homes and apartments consistently outperform shared and private rooms; dorms average 84.5 and campers/RVs 81 — the two lowest categories.</li>
+        <li>Manhattan properties, especially lofts and homes, are the most expensive across all NYC neighborhoods.</li>
+        <li>Lofts and townhouses maintain consistently high reviews across every neighborhood studied.</li>
+        <li>Brooklyn delivers the highest average review scores and is the second most expensive market — a strong value signal for promotion.</li>
+      </ul>
+    </div>
+
+    <!-- Data Visualization Video -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Data Visualization</p>
+      <h2 class="cs-section-title">The dashboard, animated</h2>
+      <p class="cs-section-text">
+        Each chart from the Tableau analysis — score by room type, score by neighborhood,
+        and price by borough — rebuilt in Remotion and animated frame-by-frame.
+      </p>
+    </div>
+
+    <div class="ab-video-wrap reveal">
+      <video autoplay muted loop playsinline>
+        <source src="remotion-airbnb/out/airbnb-dashboard.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- Recommendations -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Recommendations</p>
+      <h2 class="cs-section-title">Four strategic opportunities</h2>
+      <div class="cs-info-grid">
+        <div class="cs-info-card reveal">
+          <div class="cs-info-card-icon">💰</div>
+          <p class="cs-info-card-title">Value Signaling</p>
+          <p class="cs-info-card-text">Use tiered pricing UI that pairs price, expected score, and key highlights — leveraging the price-quality correlation to set accurate expectations.</p>
+        </div>
+        <div class="cs-info-card reveal reveal-d1">
+          <div class="cs-info-card-icon">🏠</div>
+          <p class="cs-info-card-title">Property Prioritization</p>
+          <p class="cs-info-card-text">Elevate entire homes, townhouses, and lofts in search and recommendation — these consistently earn higher scores and drive more bookings.</p>
+        </div>
+        <div class="cs-info-card reveal reveal-d2">
+          <div class="cs-info-card-icon">🗺️</div>
+          <p class="cs-info-card-title">Neighborhood Positioning</p>
+          <p class="cs-info-card-text">Expand Brooklyn inventory and promote it as a premium-value market — high scores at competitive prices make it an ideal spotlight region.</p>
+        </div>
+        <div class="cs-info-card reveal reveal-d3">
+          <div class="cs-info-card-icon">⬆️</div>
+          <p class="cs-info-card-title">Experience Uplift</p>
+          <p class="cs-info-card-text">Provide structured host guidance for dorms and campers — targeted improvement prompts can lift scores and long-term viability of these listing types.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- UX Features — Property Type -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">UX Feature Improvements</p>
+      <h2 class="cs-section-title">Property type filtering &amp; score-first design</h2>
+      <p class="cs-section-text">
+        The analysis directly informed three new UX patterns: a prominent property-type
+        filter surfacing entire homes by default, score badges on listing cards, and a
+        comparison panel letting users pin and evaluate up to three listings side-by-side.
+      </p>
+    </div>
+
+    <div class="ab-screens reveal">
+      <div class="ab-screen">
+        <p class="ab-screen-label">Property type filtering + quick host tips</p>
+        <img src="assets/img/image_2_397-2970.png"
+             alt="Airbnb redesign — property type filtering screen" />
+      </div>
+      <div class="ab-screen">
+        <p class="ab-screen-label">Host improvement guides</p>
+        <img src="assets/img/host_1_397-2971.png"
+             alt="Airbnb redesign — host guidance screen" />
+      </div>
+    </div>
+
+    <div class="ab-screens reveal">
+      <div class="ab-screen">
+        <p class="ab-screen-label">Score-first listing cards</p>
+        <img src="assets/img/guest_1_397-2976.png"
+             alt="Airbnb redesign — score-first listing cards" />
+      </div>
+      <div class="ab-screen">
+        <p class="ab-screen-label">Value insight on listing detail</p>
+        <img src="assets/img/guest_1_397-2969.png"
+             alt="Airbnb redesign — value insight detail" />
+      </div>
+    </div>
+
+    <!-- Prototype -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Prototype</p>
+      <h2 class="cs-section-title">Interactive web prototype</h2>
+      <p class="cs-section-text">
+        A fully interactive prototype was built in Lovable — covering the redesigned
+        search experience, Brooklyn spotlight, score visualization, and host improvement
+        guide flows.
+      </p>
+    </div>
+
+    <div class="ab-laptop reveal">
+      <img src="assets/img/Mockup_30_397-2997.png"
+           alt="Airbnb Insights prototype on laptop" />
+    </div>
+
+    <div class="reveal" style="margin-bottom:64px;">
+      <a href="https://airbnbtrinh.lovable.app" target="_blank" rel="noopener" class="ab-link-btn">
+        View Live Prototype &nbsp;↗
+      </a>
+    </div>
+
+    <!-- Nav -->
+    <div class="cs-nav-links reveal">
+      <a href="redesign.html" class="cs-nav-link">← 7-Eleven Redesign</a>
+      <a href="about.html" class="cs-nav-link">About Me →</a>
+    </div>
+
+  </article>
+
+  <footer class="footer">
+    <p class="footer-left">© 2026 Trinh Diep</p>
+    <div class="footer-right">
+      <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-link">
+        <svg viewBox="0 0 24 24" aria-label="LinkedIn"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="mailto:trinhdiep260@gmail.com" class="footer-link">trinhdiep260@gmail.com</a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

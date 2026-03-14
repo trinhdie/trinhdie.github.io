@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7-Eleven Redesign — Trinh Diep</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .cs-hero { background: linear-gradient(160deg, #0d0a02 0%, #1a1205 50%, #0d0a02 100%); }
+    .cs-hero-glow { background: radial-gradient(ellipse 60% 75% at 60% 45%, rgba(255,100,0,0.28) 0%, rgba(255,60,0,0.10) 50%, transparent 100%); }
+
+    .se-before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .se-screen {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border2);
+      background: var(--bg2);
+    }
+    .se-screen-label {
+      padding: 10px 16px;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .se-screen img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .se-banner {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border2);
+      margin-bottom: 40px;
+    }
+    .se-banner img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      max-height: 360px;
+    }
+
+    @media (max-width: 640px) {
+      .se-before-after { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Trinh Diep</a>
+    <ul class="nav-links">
+      <li><a href="https://drive.google.com/uc?export=download&id=1H4ZhzP7mPR2rUBhalMkbQFD5JIogTUkN" class="nav-resume" target="_blank" rel="noopener">Resume ↓</a></li>
+      <li><a href="index.html">Index</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────────────────────── -->
+  <header class="cs-hero">
+    <div class="cs-hero-bg">
+      <img src="assets/img/Frame_2_339-416.png"
+           alt="" aria-hidden="true" />
+    </div>
+    <div class="cs-hero-glow"></div>
+    <div class="cs-hero-inner">
+      <p class="cs-eyebrow">Case Study &nbsp;/&nbsp; 03</p>
+      <h1 class="cs-title">7-Eleven<br>Redesign</h1>
+      <div class="cs-meta">
+        <div>
+          <p class="cs-meta-label">Role</p>
+          <p class="cs-meta-value">UX/UI Designer</p>
+        </div>
+        <div>
+          <p class="cs-meta-label">Platform</p>
+          <p class="cs-meta-value">iOS Mobile</p>
+        </div>
+        <div>
+          <p class="cs-meta-label">Focus</p>
+          <p class="cs-meta-value">Redesign · Audit</p>
+        </div>
+        <div>
+          <p class="cs-meta-label">Tools</p>
+          <p class="cs-meta-value">Figma · FigJam</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── BODY ─────────────────────────────────────────── -->
+  <article class="cs-body">
+
+    <!-- Intro image -->
+    <div class="reveal" style="margin-bottom:72px; border-radius:12px; overflow:hidden; border:1px solid var(--border2);">
+      <img src="assets/img/Image__7-Eleven_-_Good_Times__Great_Deals__I371-439;27-30.png"
+           alt="7-Eleven Good Times Great Deals"
+           style="width:100%; display:block; object-fit:cover; max-height:480px;" />
+    </div>
+
+    <!-- Overview -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Overview</p>
+      <h2 class="cs-section-title">A better version of the 7-Eleven mobile app</h2>
+      <p class="cs-section-text">
+        Curated around 7-Eleven's own brand identity — <em style="color:var(--cream); font-style:italic;">"Give the customers what they want, when and where they want it."</em> — this redesign
+        targets the app's core UX failures: a home screen dominated by deals instead of
+        products, an unclear ordering flow, and a confirmation experience that leaves users
+        guessing whether their scan actually worked.
+      </p>
+    </div>
+
+    <!-- Issues -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Issues Identified</p>
+      <h2 class="cs-section-title">Outdated, unclear, and misaligned</h2>
+      <div class="cs-info-grid">
+        <div class="cs-info-card reveal">
+          <div class="cs-info-card-icon">🛑</div>
+          <p class="cs-info-card-title">Deals-First Home Screen</p>
+          <p class="cs-info-card-text">The main page featured more "deals" than products — misaligned with 7-Eleven's push toward fresh food and a younger audience.</p>
+        </div>
+        <div class="cs-info-card reveal reveal-d1">
+          <div class="cs-info-card-icon">🗺️</div>
+          <p class="cs-info-card-title">Unclear Ordering Flow</p>
+          <p class="cs-info-card-text">Users had no clear path from browsing to ordering — location selection, cart, and checkout were disconnected steps with no logical sequence.</p>
+        </div>
+        <div class="cs-info-card reveal reveal-d2">
+          <div class="cs-info-card-icon">❓</div>
+          <p class="cs-info-card-title">Ambiguous Checkout Confirmation</p>
+          <p class="cs-info-card-text">Users couldn't tell if mobile checkout succeeded. Misleading store participation signals added further confusion at the point of scan.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- UX Research -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">UX Research</p>
+      <h2 class="cs-section-title">Interviews, reviews, and competitive analysis</h2>
+      <p class="cs-section-text">
+        Small-scale interviews, online user reviews, and news coverage revealed that more
+        than half of 7-Eleven users access the app via mobile (Semrush data). Pain points
+        clustered around: confusing reward systems, hard-to-reach support, and mobile
+        checkout confusion — especially around which locations actually support it.
+      </p>
+      <p class="cs-section-text" style="margin-top:16px;">
+        7-Eleven's goal: open more infrastructure like their highly successful Japan
+        counterpart. The redesign aligns the app with that ambition — clean, simplistic,
+        and customer-centric.
+      </p>
+    </div>
+
+    <!-- Feature 1: Home Screen -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Feature 01</p>
+      <h2 class="cs-section-title">Redesigned home screen with support line &amp; products</h2>
+      <p class="cs-section-text">
+        The old home screen buried products under deals. The redesign surfaces top items,
+        adds a fresh food section, puts the support line front and center, and moves deals
+        into a dedicated "Featured" section — all while showing a mobile checkout how-to
+        card on first launch.
+      </p>
+    </div>
+
+    <div class="reveal" style="margin-bottom:40px; border-radius:12px; overflow:hidden; border:1px solid var(--border2);">
+      <img src="assets/img/Mockup_10_363-464.png"
+           alt="7-Eleven — Support Line on Home Screen mockup"
+           style="width:100%; display:block; object-fit:cover;" />
+    </div>
+
+    <div class="se-before-after reveal">
+      <div class="se-screen">
+        <p class="se-screen-label">Before — Original Home Screen</p>
+        <img src="assets/img/Screenshot_20260123_212122_7-Eleven_1_345-513.png"
+             alt="7-Eleven original home screen" />
+      </div>
+      <div class="se-screen">
+        <p class="se-screen-label">After — Redesigned Home Screen</p>
+        <img src="assets/img/Home_1_345-514.png"
+             alt="7-Eleven redesigned home screen" />
+      </div>
+    </div>
+
+    <!-- Feature 2: Ordering Flow -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Feature 02</p>
+      <h2 class="cs-section-title">Location screen added to the ordering flow</h2>
+      <p class="cs-section-text">
+        With the full menu on display, users can add an item, pick their location and order
+        method, then return to the menu to complete checkout. This exposes users to more
+        products while solving the location-selection gap that caused mobile checkout failures.
+      </p>
+    </div>
+
+    <div class="reveal" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-bottom:72px;">
+      <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border2);">
+        <img src="assets/img/Menu_1_347-540.png"
+             alt="7-Eleven menu screen"
+             style="width:100%; display:block; object-fit:cover;" />
+      </div>
+      <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border2);">
+        <img src="assets/img/Order1_1_348-544.png"
+             alt="7-Eleven order + location screen"
+             style="width:100%; display:block; object-fit:cover;" />
+      </div>
+      <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border2);">
+        <img src="assets/img/Menu-cart_1_348-545.png"
+             alt="7-Eleven menu with cart"
+             style="width:100%; display:block; object-fit:cover;" />
+      </div>
+    </div>
+
+    <!-- Feature 3: Mobile Checkout Location -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Feature 03</p>
+      <h2 class="cs-section-title">Verified location disclosure at checkout start</h2>
+      <p class="cs-section-text">
+        Users expressed confusion about which stores supported mobile checkout. The fix:
+        location verification is shown at the very start of the order flow — not buried
+        after the fact. Verified stores are clearly marked before any commitment is made.
+      </p>
+    </div>
+
+    <div class="reveal" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-bottom:72px;">
+      <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border2);">
+        <p style="padding:9px 14px; font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--border);">Before</p>
+        <img src="assets/img/before_356-431.png"
+             alt="7-Eleven — before: unclear mobile checkout location"
+             style="width:100%; display:block; object-fit:cover;" />
+      </div>
+      <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border2);">
+        <p style="padding:9px 14px; font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--border);">After — Step 1</p>
+        <img src="assets/img/after_356-432.png"
+             alt="7-Eleven — after: verified location selection"
+             style="width:100%; display:block; object-fit:cover;" />
+      </div>
+      <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border2);">
+        <p style="padding:9px 14px; font-size:0.6rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--border);">After — Step 2</p>
+        <img src="assets/img/after_356-433.png"
+             alt="7-Eleven — after: confirmed location screen"
+             style="width:100%; display:block; object-fit:cover;" />
+      </div>
+    </div>
+
+    <!-- Feature 4: Scan Confirmation -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Feature 04</p>
+      <h2 class="cs-section-title">Clearer scanning confirmation</h2>
+      <p class="cs-section-text">
+        The confirmation screen is the highest-stakes moment in the app. The redesign
+        combines the receipt and confirmation into a single screen, adds clear step guides,
+        and uses strong visual feedback so users know immediately that their scan succeeded.
+      </p>
+    </div>
+
+    <div class="se-before-after reveal">
+      <div class="se-screen">
+        <p class="se-screen-label">Before — Ambiguous confirmation</p>
+        <img src="assets/img/IMG-20260127-WA0002_1_356-450.png"
+             alt="7-Eleven — before: unclear scan confirmation" />
+      </div>
+      <div class="se-screen">
+        <p class="se-screen-label">After — Clear receipt + step guide</p>
+        <img src="assets/img/confirmation_1_356-452.png"
+             alt="7-Eleven — after: redesigned confirmation screen" />
+      </div>
+    </div>
+
+    <!-- Prototype / Banner -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Prototype</p>
+      <h2 class="cs-section-title">High-fidelity screens &amp; interactive flow</h2>
+      <p class="cs-section-text">
+        High-fidelity screens built in Figma using 7-Eleven's brand palette — adapted
+        to meet WCAG AA contrast standards. The interactive prototype covers the full
+        checkout journey from landing through rewards redemption.
+      </p>
+    </div>
+
+    <div class="se-banner reveal">
+      <img src="assets/img/Image__7-Eleven_-_Good_Times__Great_Deals__I363-499;27-58.png"
+           alt="7-Eleven Good Times Great Deals — prototype banner" />
+    </div>
+
+    <div class="reveal" style="text-align:center; margin-bottom:72px;">
+      <a href="https://www.figma.com/proto/9pTx6K8KYG2FHfin9qEt3i/Reimagining-7eleven?page-id=119%3A1082&node-id=119-2337&viewport=-3147%2C-787%2C0.57&t=VND0XG3wjGzWalLJ-1&scaling=scale-down&content-scaling=fixed"
+         target="_blank" rel="noopener"
+         style="display:inline-flex; align-items:center; gap:12px; padding:16px 32px; border:1px solid #CC0000; border-radius:6px; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:#CC0000; text-decoration:none; transition:background 0.2s, color 0.2s;"
+         onmouseover="this.style.background='#CC0000';this.style.color='#fff';"
+         onmouseout="this.style.background='transparent';this.style.color='#CC0000';">
+        View Interactive Prototype &nbsp;↗
+      </a>
+    </div>
+
+    <!-- Style Guide -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Style Guide</p>
+      <h2 class="cs-section-title">Brand-faithful, WCAG-accessible</h2>
+      <p class="cs-section-text">
+        The redesign stays true to 7-Eleven's established brand colors while addressing
+        contrast and accessibility gaps present in the original. A clean white base
+        keeps the UI uncluttered and scan-ready.
+      </p>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#CC0000;"></div>
+          <div class="swatch-info"><p class="swatch-name">7-Eleven Red</p><p class="swatch-hex">#CC0000</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#007A33;"></div>
+          <div class="swatch-info"><p class="swatch-name">7-Eleven Green</p><p class="swatch-hex">#007A33</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FF6B00;"></div>
+          <div class="swatch-info"><p class="swatch-name">Accent Orange</p><p class="swatch-hex">#FF6B00</p></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#F5F5F5;"></div>
+          <div class="swatch-info"><p class="swatch-name">Surface White</p><p class="swatch-hex">#F5F5F5</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <div class="cs-nav-links reveal">
+      <a href="hydravoyage.html" class="cs-nav-link">← HydraVoyage</a>
+      <a href="airbnb.html" class="cs-nav-link">Next: Airbnb →</a>
+    </div>
+
+  </article>
+
+  <footer class="footer">
+    <p class="footer-left">© 2026 Trinh Diep</p>
+    <div class="footer-right">
+      <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-link">
+        <svg viewBox="0 0 24 24" aria-label="LinkedIn"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="mailto:trinhdiep260@gmail.com" class="footer-link">trinhdiep260@gmail.com</a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
