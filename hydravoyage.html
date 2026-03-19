@@ -62,6 +62,127 @@
       color: var(--muted);
     }
 
+    /* User Persona */
+    .h2-persona-card {
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 32px;
+    }
+    .h2-persona-header {
+      background: linear-gradient(135deg, rgba(0,188,125,0.1) 0%, rgba(43,127,255,0.06) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .h2-persona-avatar {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #00BC7D 0%, #2B7FFF 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fff;
+      flex-shrink: 0;
+      letter-spacing: -0.02em;
+    }
+    .h2-persona-tag {
+      display: inline-block;
+      padding: 3px 10px;
+      background: rgba(0,188,125,0.1);
+      border: 1px solid rgba(0,188,125,0.28);
+      border-radius: 100px;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: #00BC7D;
+      margin-bottom: 7px;
+    }
+    .h2-persona-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+    .h2-persona-meta {
+      font-size: 0.72rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .h2-persona-body {
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 40px;
+    }
+    .h2-persona-block h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #00BC7D;
+      margin-bottom: 10px;
+    }
+    .h2-persona-block ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .h2-persona-block ul li {
+      font-size: 0.74rem;
+      color: var(--muted);
+      line-height: 1.6;
+      padding-left: 16px;
+      position: relative;
+    }
+    .h2-persona-block ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(0,188,125,0.4);
+      font-size: 0.6rem;
+      top: 3px;
+    }
+    .h2-persona-quote {
+      grid-column: 1 / -1;
+      border-top: 1px solid var(--border);
+      padding-top: 22px;
+      margin-top: 4px;
+    }
+    .h2-persona-quote-text {
+      font-size: 0.84rem;
+      line-height: 1.75;
+      color: rgba(240,235,225,0.65);
+      font-style: italic;
+      position: relative;
+      padding-left: 18px;
+    }
+    .h2-persona-quote-text::before {
+      content: '"';
+      position: absolute;
+      left: 0;
+      top: -4px;
+      font-size: 1.6rem;
+      color: #00BC7D;
+      font-style: normal;
+      line-height: 1;
+    }
+    @media (max-width: 700px) {
+      .h2-persona-header { flex-direction: column; text-align: center; }
+      .h2-persona-body   { grid-template-columns: 1fr; }
+    }
+
     /* Commercial benefits list */
     .h2-benefits {
       margin-top: 28px;
@@ -353,6 +474,95 @@
             Building trust requires an interface that makes the technology legible —
             not hidden — so passengers feel safe, informed, and in control.
           </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Persona -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">User Research</p>
+      <h2 class="cs-section-title">Who we're designing for</h2>
+      <p class="cs-section-text">
+        Research surfaced a clear secondary user beyond tourists and fleet managers:
+        the independent operator who depends on a commercial vehicle for their livelihood.
+        Jasmine represents this persona — and her scheduling and fuel-planning pressures
+        directly shaped the operator-side feature set.
+      </p>
+
+      <div class="h2-persona-card reveal">
+        <div class="h2-persona-header">
+          <div class="h2-persona-avatar">JL</div>
+          <div>
+            <span class="h2-persona-tag">Persona 01 &nbsp;·&nbsp; Small Business Operator</span>
+            <p class="h2-persona-name">Jasmine Lopez</p>
+            <p class="h2-persona-meta">Age 33 &nbsp;·&nbsp; Los Angeles metro<br>
+              Small business owner &nbsp;·&nbsp; Gas cargo van · Same-day deliveries &amp; event setups
+            </p>
+          </div>
+        </div>
+
+        <div class="h2-persona-body">
+
+          <div class="h2-persona-block">
+            <h4>Context &amp; Habits</h4>
+            <ul>
+              <li>Runs a small events and staging business — hauls equipment, furniture, and decor between warehouses, venues, and clients.</li>
+              <li>Works mainly in dense urban traffic with occasional longer drives to out-of-town venues.</li>
+              <li>Uses calendar, maps, and route-planning apps to squeeze multiple jobs into one day.</li>
+            </ul>
+          </div>
+
+          <div class="h2-persona-block">
+            <h4>Goals</h4>
+            <ul>
+              <li>Keep fuel costs predictable and manageable across the month.</li>
+              <li>Avoid mid-day refueling that eats into tight schedules.</li>
+              <li>Plan loads and routes to eliminate backtracking and idle time in traffic.</li>
+            </ul>
+          </div>
+
+          <div class="h2-persona-block">
+            <h4>Pain Points</h4>
+            <ul>
+              <li>Last-minute client reschedules or venue changes force inefficient detours and unplanned fuel spend.</li>
+              <li>Hard to estimate how much gas a multi-stop day will actually require before starting.</li>
+              <li>Occasional van overloads increase fuel consumption and raise safety concerns.</li>
+            </ul>
+          </div>
+
+          <div class="h2-persona-block">
+            <h4>Behaviors</h4>
+            <ul>
+              <li>Plans her day early each morning and adjusts routes on the fly via phone.</li>
+              <li>Tracks expenses manually in spreadsheets or bookkeeping software at night.</li>
+              <li>Motivated by tools that make her feel "on top of the business" — not just driving.</li>
+            </ul>
+          </div>
+
+          <div class="h2-persona-block">
+            <h4>Design Needs</h4>
+            <ul>
+              <li>Multi-stop route planning that estimates total fuel usage based on cargo weight, distance, and traffic patterns.</li>
+              <li>Suggestions for ideal refuel windows between jobs, with ETA and buffer time shown.</li>
+              <li>Trip summaries showing fuel used per job or per day — to inform pricing and budgeting decisions.</li>
+              <li>Clear warning when a planned route plus load is pushing fuel and time beyond safe margins.</li>
+            </ul>
+          </div>
+
+          <div class="h2-persona-block">
+            <h4>How HydraVoyage Helps</h4>
+            <ul>
+              <li>Station Operational Status System gives her real-time visibility into hydrogen and fuel availability along her routes.</li>
+              <li>Passenger Flow and route dashboards adapt directly to cargo logistics and multi-stop scheduling.</li>
+              <li>Predictive fuel alerts flag risk before she leaves — eliminating mid-day surprises.</li>
+              <li>Trip summary data feeds directly into her end-of-day expense tracking workflow.</li>
+            </ul>
+          </div>
+
+          <div class="h2-persona-quote">
+            <p class="h2-persona-quote-text">I can't afford surprise fuel runs in the middle of a tight schedule. I need to know my day's gas needs before I even start the engine.</p>
+          </div>
+
         </div>
       </div>
     </div>
