@@ -62,6 +62,115 @@
       color: var(--muted);
     }
 
+    /* Commercial benefits list */
+    .h2-benefits {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .h2-benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px 18px;
+      background: rgba(0,188,125,0.04);
+      border: 1px solid rgba(0,188,125,0.12);
+      border-radius: 10px;
+    }
+    .h2-benefit-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .h2-benefit-text {
+      font-size: 0.78rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    .h2-benefit-text strong { color: var(--text); font-weight: 500; }
+
+    /* Design Principles */
+    .h2-principles {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .h2-principle-card {
+      border: 1px solid var(--border2);
+      border-radius: 10px;
+      padding: 24px 20px;
+      background: var(--bg2);
+    }
+    .h2-principle-icon {
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .h2-principle-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .h2-principle-text {
+      font-size: 0.74rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    /* Strategy insight block */
+    .h2-strategy {
+      margin-top: 48px;
+      padding: 28px 32px;
+      background: rgba(43,127,255,0.04);
+      border: 1px solid rgba(43,127,255,0.14);
+      border-radius: 12px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .h2-strategy-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #2B7FFF;
+      flex-shrink: 0;
+      padding-top: 3px;
+    }
+    .h2-strategy-text {
+      font-size: 0.8rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+    .h2-strategy-text strong { color: var(--text); font-weight: 500; }
+
+    /* User flow detail cards */
+    .h2-flow-detail {
+      margin-top: 12px;
+      padding-left: 16px;
+      border-left: 2px solid rgba(74,128,128,0.3);
+    }
+    .h2-flow-detail li {
+      font-size: 0.74rem;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .h2-benefits    { grid-template-columns: 1fr; }
+      .h2-principles  { grid-template-columns: 1fr 1fr; }
+      .h2-strategy    { flex-direction: column; gap: 8px; }
+    }
+    @media (max-width: 480px) {
+      .h2-principles  { grid-template-columns: 1fr; }
+    }
+
     /* Typography showcase */
     .h2-type-grid {
       display: grid;
@@ -272,7 +381,29 @@
             from testing which approach reduced cognitive load while maintaining
             full situational awareness for operators.
           </p>
+          <div class="h2-benefits">
+            <div class="h2-benefit">
+              <span class="h2-benefit-icon">🔁</span>
+              <p class="h2-benefit-text"><strong>Routes are predictable and repeatable</strong> — commercial tourism runs fixed corridors, eliminating range anxiety.</p>
+            </div>
+            <div class="h2-benefit">
+              <span class="h2-benefit-icon">⚡</span>
+              <p class="h2-benefit-text"><strong>High vehicle utilization</strong> maximizes environmental impact per vehicle deployed.</p>
+            </div>
+            <div class="h2-benefit">
+              <span class="h2-benefit-icon">🏗</span>
+              <p class="h2-benefit-text"><strong>Centralized fueling, maintenance, and training</strong> are practical at commercial scale.</p>
+            </div>
+            <div class="h2-benefit">
+              <span class="h2-benefit-icon">🌱</span>
+              <p class="h2-benefit-text"><strong>Passengers experience clean transit</strong> without changing their behavior — zero friction adoption.</p>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="h2-strategy reveal">
+        <span class="h2-strategy-label">Strategy</span>
+        <p class="h2-strategy-text">Since hydrogen fuel has limited public visibility, engaging with the <strong>expanding tourism industry</strong> provides a way to push hydrogen into everyday lifestyle — creating a foundation for broader public transit and individual mobility adoption over time.</p>
       </div>
     </div>
 
@@ -353,25 +484,78 @@
       </div>
     </div>
 
+    <!-- Design Principles -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">Design Principles</p>
+      <h2 class="cs-section-title">Four principles that shape every screen</h2>
+      <p class="cs-section-text">
+        Every visual and interaction decision in HydraVoyage maps back to one of four core
+        principles — ensuring the product feels coherent whether you're a first-time
+        passenger or an experienced fleet operator.
+      </p>
+      <div class="h2-principles">
+        <div class="h2-principle-card reveal">
+          <span class="h2-principle-icon">🌿</span>
+          <p class="h2-principle-title">Clean Energy Aesthetic</p>
+          <p class="h2-principle-text">Gradients from emerald to blue represent hydrogen and sustainability — making clean energy visible rather than invisible.</p>
+        </div>
+        <div class="h2-principle-card reveal reveal-d1">
+          <span class="h2-principle-icon">🔲</span>
+          <p class="h2-principle-title">Glassmorphism</p>
+          <p class="h2-principle-text">Frosted glass surfaces with subtle borders and backdrop blur create depth without visual noise — essential for data-dense operator screens.</p>
+        </div>
+        <div class="h2-principle-card reveal reveal-d2">
+          <span class="h2-principle-icon">✦</span>
+          <p class="h2-principle-title">Glowing Accents</p>
+          <p class="h2-principle-text">Logo marks and key icons feature soft emerald and blue glows — communicating energy and precision without feeling cold or clinical.</p>
+        </div>
+        <div class="h2-principle-card reveal reveal-d3">
+          <span class="h2-principle-icon">→</span>
+          <p class="h2-principle-title">Fluid Motion</p>
+          <p class="h2-principle-text">Smooth transitions and gradient flows suggest forward movement — reinforcing the sense of a journey in progress at every interaction point.</p>
+        </div>
+      </div>
+    </div>
+
     <!-- User Flows -->
     <div class="cs-section reveal">
       <p class="cs-section-label">User Flows</p>
       <h2 class="cs-section-title">Operator & Passenger Journeys</h2>
-      <div class="cs-info-grid">
+      <p class="cs-section-text">
+        HydraVoyage serves two distinct users with different needs and contexts — fleet operators
+        managing logistics in the field, and passengers experiencing clean transit for the first time.
+        Each flow was designed separately, then connected through shared data infrastructure.
+      </p>
+      <div class="cs-info-grid" style="margin-top:32px;">
         <div class="cs-info-card reveal">
           <div class="cs-info-card-icon">🚛</div>
           <p class="cs-info-card-title">Operator Flow</p>
-          <p class="cs-info-card-text">Real-time vehicle status, route management, hydrogen station availability, and safety overrides designed for experienced fleet operators in demanding field conditions.</p>
+          <p class="cs-info-card-text">Delivered through a tablet or mobile app, operators gain real-time access to fuel availability, vehicle status, and route management.</p>
+          <ul class="h2-flow-detail">
+            <li>Station Operational Status System — live view of hydrogen station availability along the route</li>
+            <li>Passenger Flow dashboard — capacity, boarding status, and real-time headcounts</li>
+            <li>Passenger insights through voluntary QR code data from the app or physical bus terminal</li>
+          </ul>
         </div>
         <div class="cs-info-card reveal reveal-d1">
           <div class="cs-info-card-icon">👤</div>
           <p class="cs-info-card-title">Passenger Flow</p>
-          <p class="cs-info-card-text">Simple booking, live route tracking, and real-time carbon-impact metrics that make clean transit feel tangible — not abstract.</p>
+          <p class="cs-info-card-text">Simple booking with live route tracking and real-time carbon-impact metrics that make clean transit feel tangible — not abstract.</p>
+          <ul class="h2-flow-detail">
+            <li>Book and pay through the app; ticket viewable and downloadable at any time</li>
+            <li>At boarding, a QR code scan reveals the Boarding Screen with live trip updates</li>
+            <li>In-journey carbon savings displayed in real time throughout the ride</li>
+          </ul>
         </div>
         <div class="cs-info-card reveal reveal-d2">
           <div class="cs-info-card-icon">⚡</div>
           <p class="cs-info-card-title">Fuel Network</p>
-          <p class="cs-info-card-text">API-driven data layer connecting fueling stations, route optimization, and real-time scheduling — the invisible backbone that keeps hydrogen transit reliable.</p>
+          <p class="cs-info-card-text">An API-driven data layer connects fueling stations, route optimization, and real-time scheduling — the invisible backbone of reliable hydrogen transit.</p>
+          <ul class="h2-flow-detail">
+            <li>Station status synced to operator dashboard and route planner</li>
+            <li>Predictive alerts when fuel reserves approach route minimums</li>
+            <li>Centralized maintenance and fueling coordination for fleet operators</li>
+          </ul>
         </div>
       </div>
     </div>
