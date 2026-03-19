@@ -288,6 +288,11 @@
       .h2-principles  { grid-template-columns: 1fr 1fr; }
       .h2-strategy    { flex-direction: column; gap: 8px; }
     }
+    @media (max-width: 640px) {
+      .h2-gallery-row { flex-direction: column !important; }
+      .h2-gallery-row > div:first-child,
+      .h2-gallery-row > div:last-child { order: 0 !important; }
+    }
     @media (max-width: 480px) {
       .h2-principles  { grid-template-columns: 1fr; }
     }
@@ -778,34 +783,50 @@
         and reviewing route confidence, to managing real-time AI recommendations and
         monitoring fleet metrics.
       </p>
-      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:32px;">
-        <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border2); background:var(--bg2);">
-          <img src="assets/img/Gallery_TourSelection_283-406.png"
-               alt="HydraVoyage Tour Selection screen"
-               style="width:100%; display:block; object-fit:cover;" />
-          <div style="padding:18px 20px;">
-            <p style="font-family:'Syne',sans-serif; font-size:0.82rem; font-weight:700; color:var(--text); margin-bottom:6px;">Tour Selection</p>
-            <p style="font-size:0.72rem; color:var(--muted); line-height:1.6;">Main landing page with tour options and interactive route confidence details.</p>
+      <div style="display:flex; flex-direction:column; gap:48px; margin-top:40px;">
+
+        <!-- Row 1: image left, caption right -->
+        <div style="display:flex; gap:40px; align-items:center;">
+          <div style="flex:1.4; border-radius:12px; overflow:hidden; border:1px solid var(--border2);">
+            <img src="assets/img/Gallery_TourSelection_283-406.png"
+                 alt="HydraVoyage Tour Selection screen"
+                 style="width:100%; display:block; object-fit:cover;" />
+          </div>
+          <div style="flex:1;">
+            <p style="font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--teal); margin-bottom:10px;">01 — Operator</p>
+            <p style="font-family:'Syne',sans-serif; font-size:1.25rem; font-weight:800; color:var(--text); margin-bottom:12px; line-height:1.2;">Tour Selection</p>
+            <p style="font-size:0.78rem; color:var(--muted); line-height:1.8;">Main landing page with tour options and interactive route confidence details. Operators can scan route readiness at a glance before committing to deployment.</p>
           </div>
         </div>
-        <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border2); background:var(--bg2);">
-          <img src="assets/img/Gallery_Dashboard_283-3671.png"
-               alt="HydraVoyage Dashboard View screen"
-               style="width:100%; display:block; object-fit:cover;" />
-          <div style="padding:18px 20px;">
-            <p style="font-family:'Syne',sans-serif; font-size:0.82rem; font-weight:700; color:var(--text); margin-bottom:6px;">Dashboard View</p>
-            <p style="font-size:0.72rem; color:var(--muted); line-height:1.6;">AI recommendation and chat with ability to acknowledge and bypass.</p>
+
+        <!-- Row 2: caption left, image right -->
+        <div style="display:flex; gap:40px; align-items:center;">
+          <div style="flex:1;">
+            <p style="font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--teal); margin-bottom:10px;">02 — Operator</p>
+            <p style="font-family:'Syne',sans-serif; font-size:1.25rem; font-weight:800; color:var(--text); margin-bottom:12px; line-height:1.2;">Dashboard View</p>
+            <p style="font-size:0.78rem; color:var(--muted); line-height:1.8;">AI recommendation and chat panel — operators can acknowledge suggested route adjustments or bypass them with a single tap, keeping full control in their hands.</p>
+          </div>
+          <div style="flex:1.4; border-radius:12px; overflow:hidden; border:1px solid var(--border2);">
+            <img src="assets/img/Gallery_Dashboard_283-3671.png"
+                 alt="HydraVoyage Dashboard View screen"
+                 style="width:100%; display:block; object-fit:cover;" />
           </div>
         </div>
-        <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border2); background:var(--bg2);">
-          <img src="assets/img/Gallery_Metrics_283-771.png"
-               alt="HydraVoyage Metrics screen"
-               style="width:100%; display:block; object-fit:cover;" />
-          <div style="padding:18px 20px;">
-            <p style="font-family:'Syne',sans-serif; font-size:0.82rem; font-weight:700; color:var(--text); margin-bottom:6px;">Metrics</p>
-            <p style="font-size:0.72rem; color:var(--muted); line-height:1.6;">Operator dashboard with route confidence scores and fleet performance data.</p>
+
+        <!-- Row 3: image left, caption right -->
+        <div style="display:flex; gap:40px; align-items:center;">
+          <div style="flex:1.4; border-radius:12px; overflow:hidden; border:1px solid var(--border2);">
+            <img src="assets/img/Gallery_Metrics_283-771.png"
+                 alt="HydraVoyage Metrics screen"
+                 style="width:100%; display:block; object-fit:cover;" />
+          </div>
+          <div style="flex:1;">
+            <p style="font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--teal); margin-bottom:10px;">03 — Operator</p>
+            <p style="font-family:'Syne',sans-serif; font-size:1.25rem; font-weight:800; color:var(--text); margin-bottom:12px; line-height:1.2;">Metrics</p>
+            <p style="font-size:0.78rem; color:var(--muted); line-height:1.8;">Operator dashboard with route confidence scores, fuel network reliability, and fleet performance data — all surfaced in one view so decisions don't require digging.</p>
           </div>
         </div>
+
       </div>
     </div>
 
