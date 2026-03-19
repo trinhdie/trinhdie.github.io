@@ -13,6 +13,142 @@
     .cs-hero { background: linear-gradient(160deg, #0a0e1a 0%, #0d1b3e 50%, #0a0e1a 100%); }
     .cs-hero-glow { background: radial-gradient(ellipse 55% 70% at 60% 45%, rgba(30,126,179,0.12) 0%, transparent 100%); }
 
+    /* ── User Persona */
+    .cg-persona-card {
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 32px;
+    }
+    .cg-persona-header {
+      background: linear-gradient(135deg, rgba(30,126,179,0.12) 0%, rgba(74,128,128,0.08) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .cg-persona-avatar {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1E7EB3 0%, #4a8080 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fff;
+      flex-shrink: 0;
+      letter-spacing: -0.02em;
+    }
+    .cg-persona-tag {
+      display: inline-block;
+      padding: 3px 10px;
+      background: rgba(30,126,179,0.12);
+      border: 1px solid rgba(30,126,179,0.28);
+      border-radius: 100px;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: #1E7EB3;
+      margin-bottom: 7px;
+    }
+    .cg-persona-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+    .cg-persona-meta {
+      font-size: 0.72rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .cg-persona-body {
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 40px;
+    }
+    .cg-persona-block h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1E7EB3;
+      margin-bottom: 10px;
+    }
+    .cg-persona-block ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .cg-persona-block ul li {
+      font-size: 0.74rem;
+      color: var(--muted);
+      line-height: 1.6;
+      padding-left: 16px;
+      position: relative;
+    }
+    .cg-persona-block ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: rgba(30,126,179,0.45);
+      font-size: 0.6rem;
+      top: 3px;
+    }
+    .cg-persona-quote {
+      grid-column: 1 / -1;
+      border-top: 1px solid var(--border);
+      padding-top: 22px;
+      margin-top: 4px;
+    }
+    .cg-persona-quote-text {
+      font-size: 0.84rem;
+      line-height: 1.75;
+      color: rgba(240,235,225,0.65);
+      font-style: italic;
+      position: relative;
+      padding-left: 18px;
+    }
+    .cg-persona-quote-text::before {
+      content: '"';
+      position: absolute;
+      left: 0;
+      top: -4px;
+      font-size: 1.6rem;
+      color: #1E7EB3;
+      font-style: normal;
+      line-height: 1;
+    }
+    /* persona callout badge used in the carousel */
+    .cg-persona-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 9px;
+      background: rgba(74,128,128,0.14);
+      border: 1px solid rgba(74,128,128,0.35);
+      border-radius: 100px;
+      font-size: 0.62rem;
+      letter-spacing: 0.06em;
+      color: #7ab8b8;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    @media (max-width: 700px) {
+      .cg-persona-header { flex-direction: column; text-align: center; }
+      .cg-persona-body   { grid-template-columns: 1fr; }
+    }
+
     /* ── Design Showcase Carousel */
     .cg-showcase-section { margin-bottom: 0; }
     .cg-carousel {
@@ -774,6 +910,95 @@
       </div>
     </div>
 
+    <!-- User Persona -->
+    <div class="cs-section reveal">
+      <p class="cs-section-label">User Research</p>
+      <h2 class="cs-section-title">Who we're designing for</h2>
+      <p class="cs-section-text">
+        Interviews and surveys surfaced a recurring archetype: the unpaid family caregiver
+        who coordinates care for a loved one while managing their own full life. Linda
+        represents this primary user — and her needs drove every design decision in CareGlow.
+      </p>
+
+      <div class="cg-persona-card reveal">
+        <div class="cg-persona-header">
+          <div class="cg-persona-avatar">LN</div>
+          <div>
+            <span class="cg-persona-tag">Persona 01 &nbsp;·&nbsp; Primary</span>
+            <p class="cg-persona-name">Linda Nguyen</p>
+            <p class="cg-persona-meta">Age 46 &nbsp;·&nbsp; Suburban Southern California<br>
+              Project coordinator (healthcare admin) &nbsp;·&nbsp; Caring for her 78-year-old mother at home
+            </p>
+          </div>
+        </div>
+
+        <div class="cg-persona-body">
+
+          <div class="cg-persona-block">
+            <h4>Background &amp; Tech Habits</h4>
+            <ul>
+              <li>Works full-time; comfortable with Gmail, Calendar, Notes, FaceTime, and Facebook — uses iPhone all day but not an early adopter.</li>
+              <li>Coordinates with siblings via group text and shared Google Sheets to track appointments and expenses — chaotic and hard to keep current.</li>
+              <li>Often the single point of contact for medical updates, then relays them to the family.</li>
+            </ul>
+          </div>
+
+          <div class="cg-persona-block">
+            <h4>Goals</h4>
+            <ul>
+              <li>Keep her mother safe and as independent as possible at home.</li>
+              <li>Create a shared view of tasks, meds, and appointments so siblings can genuinely share the caregiving load.</li>
+              <li>Reduce mental overload — wants to "know everything's handled" without holding every detail in her head.</li>
+            </ul>
+          </div>
+
+          <div class="cg-persona-block">
+            <h4>Frustrations &amp; Pain Points</h4>
+            <ul>
+              <li>Information scattered across sticky notes, texts, patient portals, and her own memory.</li>
+              <li>Siblings say they want to help but rarely see exactly what needs to be done or when.</li>
+              <li>Feels guilty and burned out; caregiving work is invisible and unacknowledged.</li>
+              <li>Generic to-do apps and spreadsheets feel too manual — not built for caregiving workflows.</li>
+            </ul>
+          </div>
+
+          <div class="cg-persona-block">
+            <h4>Behaviors</h4>
+            <ul>
+              <li>Checks her phone early morning and late night to plan the day and catch up on messages.</li>
+              <li>Attends medical appointments and then "translates" updates for the family.</li>
+              <li>Will adopt new tools if: onboarding is simple, the caregiving benefit is clear, and she can invite siblings easily.</li>
+            </ul>
+          </div>
+
+          <div class="cg-persona-block">
+            <h4>Needs from CareGlow</h4>
+            <ul>
+              <li>Caregiver-centric task dashboard: what's due today, what's overdue, and who's responsible.</li>
+              <li>Simple way to log symptoms, meds, and doctor instructions right after an appointment.</li>
+              <li>Lightweight sibling coordination — assign tasks, send reminders, share status updates without a complicated app.</li>
+              <li>Emotional support through small acknowledgments: streaks, encouraging micro-feedback, and visible progress.</li>
+            </ul>
+          </div>
+
+          <div class="cg-persona-block">
+            <h4>Behaviors in CareGlow</h4>
+            <ul>
+              <li>Opens Tasks first thing in the morning to see what's outstanding.</li>
+              <li>Assigns tasks to siblings directly from the task modal — uses Name Filter to check their progress.</li>
+              <li>Uses the Bill Calculator before appointments to estimate costs and reduce billing surprises.</li>
+              <li>Relies on Calendar sync and haptic notifications so nothing falls through the cracks.</li>
+            </ul>
+          </div>
+
+          <div class="cg-persona-quote">
+            <p class="cg-persona-quote-text">I'm the default caregiver for everything. I just want one place that shows who's doing what so it's not all in my head.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
     <!-- Low Fidelity Wireframes -->
     <div class="cs-section reveal">
       <p class="cs-section-label">Low Fidelity Wireframes</p>
@@ -836,7 +1061,7 @@
     <div class="cs-section cg-showcase-section reveal">
       <p class="cs-section-label">Features</p>
       <h2 class="cs-section-title">Designed solutions to real problems</h2>
-      <p class="cs-section-text">Each feature in CareGlow was built in direct response to a documented patient pain point — uncovered through surveys, provider interviews, and real-world observation.</p>
+      <p class="cs-section-text">Each feature in CareGlow was built in direct response to a documented patient pain point — uncovered through surveys, provider interviews, and real-world observation. Slides marked <span class="cg-persona-badge" style="font-size:0.62rem;">👤 Linda</span> are optimized for our primary persona.</p>
     </div>
 
     <div class="cg-carousel reveal" id="cg-carousel">
@@ -847,7 +1072,7 @@
           <div class="cg-slide">
             <div class="cg-slide-header">
               <span class="cg-slide-tag">Problem 01</span>
-              <h3 class="cg-slide-title">Forgetting Health Documents</h3>
+              <h3 class="cg-slide-title">Forgetting Health Documents <span class="cg-persona-badge">👤 Linda</span></h3>
               <p class="cg-slide-desc">Appointments are booked weeks ahead — patients forget the purpose of their visit (referrals, forms, clearance). Added reminders, <strong>predictive scheduling slots</strong>, and a notes tool prevent this.</p>
             </div>
             <div class="cg-slide-showcase">
@@ -1094,7 +1319,7 @@
           <div class="cg-slide">
             <div class="cg-slide-header">
               <span class="cg-slide-tag">Problem 05</span>
-              <h3 class="cg-slide-title">Scheduling Delays</h3>
+              <h3 class="cg-slide-title">Scheduling Delays <span class="cg-persona-badge">👤 Linda</span></h3>
               <p class="cg-slide-desc">Finding an appointment slot can take weeks, then the visit purpose gets forgotten. CareGlow offers <strong>predictive scheduling</strong>, smart reminders, and a unified calendar to keep patients on track.</p>
             </div>
             <div class="cg-slide-showcase">
@@ -1148,7 +1373,7 @@
           <div class="cg-slide">
             <div class="cg-slide-header">
               <span class="cg-slide-tag">New ✦</span>
-              <h3 class="cg-slide-title">Personalized Task Management</h3>
+              <h3 class="cg-slide-title">Personalized Task Management <span class="cg-persona-badge">👤 Linda</span></h3>
               <p class="cg-slide-desc">Built for care coordinators and families — assign tasks to specific individuals, filter by name to focus, and build healthy habits through <strong>daily completion streaks</strong> and micro-feedback.</p>
             </div>
             <div class="cg-slide-showcase">
