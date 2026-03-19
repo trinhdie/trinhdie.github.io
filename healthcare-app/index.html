@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>CareGlow</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       WELCOME SCREEN
+  ══════════════════════════════════════ -->
+  <div id="welcome-screen" class="welcome-screen">
+    <div class="orb orb-blue"></div>
+    <div class="orb orb-teal"></div>
+    <div class="orb orb-pink"></div>
+    <div class="welcome-logo-wrap">
+      <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
+        <circle cx="45" cy="45" r="45" fill="#FF3399"/>
+        <path d="M45 20v50M20 45h50" stroke="#111" stroke-width="12" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="welcome-card glass-card">
+      <h1 class="welcome-title">CareGlow</h1>
+      <p class="welcome-sub" data-i18n="welcome_sub">Manage your health easily</p>
+      <button class="btn-primary" id="get-started-btn" data-i18n="btn_get_started">Get Started</button>
+      <button class="btn-secondary" id="lang-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 3c-2 3-3 6-3 9s1 6 3 9m0-18c2 3 3 6 3 9s-1 6-3 9M3 12h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span data-i18n="btn_language">Language</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       LOGIN SCREEN
+  ══════════════════════════════════════ -->
+  <div id="login-screen" class="auth-screen hidden">
+    <div class="orb orb-blue"></div>
+    <div class="orb orb-teal"></div>
+    <div class="orb orb-pink"></div>
+    <div class="auth-card glass-card">
+      <div class="auth-logo">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="24" fill="#FF3399"/>
+          <path d="M24 11v26M11 24h26" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h2 class="auth-heading">Welcome back</h2>
+      <p class="auth-sub">Sign in to your CareGlow account</p>
+
+      <!-- ── Step 1: Choose sign-in method ── -->
+      <div id="login-step1">
+        <button class="btn-social" id="google-login-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Continue with Google
+        </button>
+
+        <div class="auth-divider"><span>or</span></div>
+
+        <div class="form-group" style="margin-bottom:0">
+          <label class="field-label">Email address</label>
+          <input type="email" class="field-input" id="login-email" placeholder="you@email.com" autocomplete="email" />
+        </div>
+        <button class="btn-email full-w" id="continue-email-btn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          Continue with Email
+        </button>
+      </div>
+
+      <!-- ── Step 2: Password entry ── -->
+      <div id="login-step2" class="hidden">
+        <button class="auth-back-btn" id="login-back-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Back
+        </button>
+        <div class="login-email-chip" id="login-email-chip">you@email.com</div>
+        <div class="form-group">
+          <label class="field-label">Password</label>
+          <div class="pw-wrap">
+            <input type="password" class="field-input" id="login-password" placeholder="••••••••" autocomplete="current-password" />
+            <button class="pw-toggle" id="login-pw-toggle" type="button" tabindex="-1">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="auth-options-row">
+          <label class="checkbox-label"><input type="checkbox" id="login-remember" /><span>Remember me</span></label>
+          <button class="link-btn" id="forgot-pw-btn">Forgot password?</button>
+        </div>
+        <button class="btn-primary full-w" id="login-btn">Sign In</button>
+      </div>
+
+      <p class="auth-switch">New to CareGlow? <button class="link-btn" id="go-signup-btn">Create an account →</button></p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SIGN UP SCREEN
+  ══════════════════════════════════════ -->
+  <div id="signup-screen" class="auth-screen hidden">
+    <div class="orb orb-blue"></div>
+    <div class="orb orb-teal"></div>
+    <div class="orb orb-pink"></div>
+    <div class="auth-card glass-card">
+      <div class="auth-logo">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="24" fill="#FF3399"/>
+          <path d="M24 11v26M11 24h26" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h2 class="auth-heading">Create Account</h2>
+      <p class="auth-sub">Join CareGlow — it's free</p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="field-label">First Name</label>
+          <input type="text" class="field-input" id="signup-fname" placeholder="John" autocomplete="given-name" />
+        </div>
+        <div class="form-group">
+          <label class="field-label">Last Name</label>
+          <input type="text" class="field-input" id="signup-lname" placeholder="Doe" autocomplete="family-name" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="field-label">Email</label>
+        <input type="email" class="field-input" id="signup-email" placeholder="you@email.com" autocomplete="email" />
+      </div>
+      <div class="form-group">
+        <label class="field-label">Date of Birth</label>
+        <input type="date" class="field-input" id="signup-dob" />
+      </div>
+      <div class="form-group">
+        <label class="field-label">Insurance <span class="field-label-hint">optional</span></label>
+        <div class="select-wrap">
+          <select class="field-select" id="signup-insurance">
+            <option value="">Skip for now</option>
+            <option>Kaiser Permanente</option>
+            <option>Blue Cross Blue Shield</option>
+            <option>Aetna</option>
+            <option>UnitedHealthcare</option>
+            <option>Cigna</option>
+            <option>Medicaid / Medicare</option>
+            <option>No Insurance</option>
+          </select>
+          <span class="select-arrow">&#8964;</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="field-label">Password</label>
+        <div class="pw-wrap">
+          <input type="password" class="field-input" id="signup-password" placeholder="Min. 8 characters" autocomplete="new-password" />
+          <button class="pw-toggle" id="signup-pw-toggle" type="button" tabindex="-1">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg>
+          </button>
+        </div>
+        <div class="pw-strength-bar" id="pw-strength-bar"><div class="pw-strength-fill" id="pw-strength-fill"></div></div>
+        <div class="pw-strength-label" id="pw-strength-label"></div>
+      </div>
+      <div class="form-group">
+        <label class="field-label">Confirm Password</label>
+        <input type="password" class="field-input" id="signup-confirm" placeholder="••••••••" autocomplete="new-password" />
+      </div>
+      <div class="form-group">
+        <label class="checkbox-label terms-label">
+          <input type="checkbox" id="signup-terms" />
+          <span>I agree to the <button class="link-btn" type="button">Terms of Service</button> and <button class="link-btn" type="button">Privacy Policy</button></span>
+        </label>
+      </div>
+      <button class="btn-primary full-w" id="signup-btn">Create Account</button>
+      <p class="auth-switch">Already have an account? <button class="link-btn" id="go-login-btn">Sign in →</button></p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       CONSENT / NPP SCREEN
+  ══════════════════════════════════════ -->
+  <div id="consent-screen" class="auth-screen hidden">
+    <div class="orb orb-blue"></div>
+    <div class="orb orb-teal"></div>
+    <div class="orb orb-pink"></div>
+    <div class="consent-card glass-card">
+
+      <div class="consent-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="20" fill="#FF3399"/>
+          <path d="M20 9v22M9 20h22" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <div class="consent-title">Notice of Privacy Practices</div>
+          <div class="consent-eff">Effective January 1, 2025 · HIPAA §164.520</div>
+        </div>
+      </div>
+
+      <div class="consent-body">
+        <p class="consent-intro">CareGlow is committed to protecting your health information. This notice describes how your Protected Health Information (PHI) may be used and disclosed, and how you can get access to it. Please review it carefully.</p>
+
+        <div class="consent-section">
+          <div class="consent-section-title">Your Rights</div>
+          <ul class="consent-list">
+            <li><strong>Access your PHI</strong> — you may request a copy of your health records at any time.</li>
+            <li><strong>Amend your records</strong> — you may request corrections to inaccurate or incomplete information.</li>
+            <li><strong>Restrict uses</strong> — you may request limits on how your PHI is used or shared.</li>
+            <li><strong>Confidential communications</strong> — you may request we contact you only in certain ways.</li>
+            <li><strong>Accounting of disclosures</strong> — you may request a list of disclosures made of your PHI.</li>
+            <li><strong>Request deletion</strong> — you may request deletion of your PHI subject to legal requirements.</li>
+          </ul>
+        </div>
+
+        <div class="consent-section">
+          <div class="consent-section-title">How We Use Your Information</div>
+          <ul class="consent-list">
+            <li><strong>Treatment</strong> — to coordinate care with your providers and manage appointments.</li>
+            <li><strong>Payment</strong> — to process insurance claims and calculate your estimated costs.</li>
+            <li><strong>Healthcare operations</strong> — to improve app functionality and patient experience.</li>
+            <li>We do <strong>not</strong> sell your PHI to third parties.</li>
+            <li>We do <strong>not</strong> use your PHI for marketing without explicit authorization.</li>
+          </ul>
+        </div>
+
+        <div class="consent-section">
+          <div class="consent-section-title">Data Security</div>
+          <ul class="consent-list">
+            <li>Sessions automatically lock after <strong>15 minutes</strong> of inactivity.</li>
+            <li>Your information is protected under HIPAA's Privacy and Security Rules.</li>
+            <li>You may contact our Privacy Officer at <strong>privacy@careglow.health</strong> with any concerns.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="consent-checks">
+        <label class="consent-check-label">
+          <input type="checkbox" id="consent-npp" />
+          <span>I have read and acknowledge the Notice of Privacy Practices</span>
+        </label>
+        <label class="consent-check-label">
+          <input type="checkbox" id="consent-phi" />
+          <span>I consent to the collection and use of my Protected Health Information (PHI) for treatment, payment, and healthcare operations</span>
+        </label>
+        <label class="consent-check-label">
+          <input type="checkbox" id="consent-rights" />
+          <span>I understand my patient rights, including the right to access, amend, and request deletion of my PHI</span>
+        </label>
+      </div>
+
+      <button class="btn-primary full-w" id="consent-agree-btn" disabled>I Agree &amp; Continue</button>
+      <p class="consent-footer">You must agree to all items above to use CareGlow. Your consent is logged with a timestamp.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       TIMEOUT WARNING (bottom sheet)
+  ══════════════════════════════════════ -->
+  <div id="timeout-warning" class="timeout-warning hidden">
+    <div class="tw-sheet glass-card">
+      <div class="tw-top">
+        <div class="tw-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="tw-title">Session expiring soon</div>
+          <div class="tw-sub">Your session will lock due to inactivity.</div>
+        </div>
+        <div class="tw-countdown" id="tw-countdown">2:00</div>
+      </div>
+      <div class="tw-btns">
+        <button class="btn-primary" id="tw-stay-btn">Stay Logged In</button>
+        <button class="btn-ghost" id="tw-lock-btn">Lock Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SESSION LOCK SCREEN
+  ══════════════════════════════════════ -->
+  <div id="lock-screen" class="lock-screen hidden">
+    <div class="lock-card glass-card">
+      <div class="lock-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </div>
+      <h2 class="lock-title">Session Locked</h2>
+      <div class="lock-user" id="lock-user-email"></div>
+
+      <!-- Unlock method tabs -->
+      <div class="lock-tabs">
+        <button class="lock-tab active" data-lock-tab="password">Password</button>
+        <button class="lock-tab" data-lock-tab="pin">PIN</button>
+        <button class="lock-tab" data-lock-tab="biometric">Biometric</button>
+      </div>
+
+      <!-- ── Password panel ── -->
+      <div class="lock-panel" id="lock-panel-password">
+        <div class="pw-wrap" style="width:100%">
+          <input type="password" class="field-input" id="lock-password" placeholder="Enter password" autocomplete="current-password" />
+          <button class="pw-toggle" id="lock-pw-toggle" type="button" tabindex="-1">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg>
+          </button>
+        </div>
+        <button class="btn-primary full-w" id="lock-unlock-btn">Unlock</button>
+      </div>
+
+      <!-- ── PIN panel ── -->
+      <div class="lock-panel hidden" id="lock-panel-pin">
+        <div class="pin-dots" id="lock-pin-dots">
+          <span class="pin-dot"></span><span class="pin-dot"></span>
+          <span class="pin-dot"></span><span class="pin-dot"></span>
+        </div>
+        <div class="pin-pad">
+          <button class="pin-key" data-k="1">1</button>
+          <button class="pin-key" data-k="2">2</button>
+          <button class="pin-key" data-k="3">3</button>
+          <button class="pin-key" data-k="4">4</button>
+          <button class="pin-key" data-k="5">5</button>
+          <button class="pin-key" data-k="6">6</button>
+          <button class="pin-key" data-k="7">7</button>
+          <button class="pin-key" data-k="8">8</button>
+          <button class="pin-key" data-k="9">9</button>
+          <button class="pin-key pin-key--del" data-k="del">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 4H8l-7 8 7 8h13a2 2 0 002-2V6a2 2 0 00-2-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M18 9l-6 6M12 9l6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </button>
+          <button class="pin-key" data-k="0">0</button>
+          <div></div>
+        </div>
+        <p class="pin-hint" id="lock-pin-hint">Enter your 4-digit PIN</p>
+      </div>
+
+      <!-- ── Biometric panel ── -->
+      <div class="lock-panel hidden" id="lock-panel-biometric">
+        <button class="btn-biometric" id="lock-biometric-btn">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z" stroke="currentColor" stroke-width="1.5"/><path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12 8v1M12 15v1M8 12H7M17 12h-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Use Face ID / Fingerprint
+        </button>
+        <p class="biometric-hint" id="biometric-hint">Touch the button to authenticate with your device biometrics.</p>
+      </div>
+
+      <button class="btn-ghost full-w lock-signout" id="lock-signout-btn">Sign Out Instead</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       MAIN APP
+  ══════════════════════════════════════ -->
+  <div id="app" class="app hidden">
+    <div class="app-orb app-orb-1"></div>
+    <div class="app-orb app-orb-2"></div>
+
+    <!-- TOP BAR -->
+    <header class="top-bar">
+      <button class="logo-btn" id="logo-btn">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+          <circle cx="17" cy="17" r="17" fill="#FF3399"/>
+          <path d="M17 7v20M7 17h20" stroke="#111" stroke-width="4.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <span class="top-bar-title" id="top-bar-title" data-i18n="nav_home">Home</span>
+      <button class="ai-btn" id="ai-btn" title="AI Assistant">
+        <div class="ai-btn-glow"></div>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z" fill="white" opacity="0.95"/>
+          <path d="M19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8L19 14z" fill="white" opacity="0.7"/>
+          <path d="M5 18l.5 1.5L7 20l-1.5.5L5 22l-.5-1.5L3 20l1.5-.5L5 18z" fill="white" opacity="0.5"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- PANELS -->
+    <main class="panels">
+
+      <!-- ── HOME ── -->
+      <section class="panel active" id="panel-home">
+        <h1 class="page-heading" data-i18n="heading_home">Welcome back,<br>John!</h1>
+
+        <!-- Notifications -->
+        <div class="section-card notif-card">
+          <div class="section-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span data-i18n="label_notif">Notifications</span>
+          </div>
+          <div id="home-notifs"></div>
+        </div>
+
+        <!-- Upcoming Appointments -->
+        <div class="section-card">
+          <div class="section-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18M8 2v4M16 2v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span data-i18n="label_upcoming">Upcoming Appointments</span>
+          </div>
+          <div id="home-appts"></div>
+        </div>
+
+        <!-- Tasks (High Priority first, then oldest-due) -->
+        <div class="section-card">
+          <div class="section-label-row">
+            <div class="section-label" style="margin-bottom:0">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="5" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/></svg>
+              <span data-i18n="label_tasks">Tasks</span>
+            </div>
+            <button class="link-btn" data-goto="tasks" data-i18n="btn_view_all">View all</button>
+          </div>
+          <div id="home-tasks-list" style="margin-top:10px"></div>
+        </div>
+
+        <!-- Health Fun Facts -->
+        <div class="section-card facts-home-card">
+          <div class="section-label-row">
+            <div class="section-label" style="margin-bottom:0">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <span data-i18n="label_facts">Health Fun Facts</span>
+            </div>
+            <button class="icon-action-btn" id="fact-shuffle-btn" title="Shuffle fact">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+
+          <!-- Category chips -->
+          <div class="fact-cat-chips" id="fact-cat-chips">
+            <button class="fact-cat-chip active" data-cat="all">All</button>
+            <button class="fact-cat-chip" data-cat="heart">❤️ Heart</button>
+            <button class="fact-cat-chip" data-cat="brain">🧠 Brain</button>
+            <button class="fact-cat-chip" data-cat="body">🦴 Body</button>
+            <button class="fact-cat-chip" data-cat="nutrition">🥦 Nutrition</button>
+            <button class="fact-cat-chip" data-cat="weird">🤯 Weird</button>
+          </div>
+
+          <!-- Fact display -->
+          <div class="fact-home-body">
+            <div class="fact-home-emoji" id="fact-home-emoji">🫀</div>
+            <p class="fact-home-text" id="fact-home-text">Loading…</p>
+          </div>
+          <div class="fact-home-footer">
+            <span class="fact-home-cat" id="fact-home-cat"></span>
+            <div class="fact-nav-btns">
+              <button class="fact-nav-btn" id="fact-prev-btn">&#8249;</button>
+              <span class="fact-counter" id="fact-counter">1 / 30</span>
+              <button class="fact-nav-btn" id="fact-next-btn">&#8250;</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Insurance Tips Slideshow -->
+        <div class="slideshow-wrap">
+          <div class="slideshow" id="slideshow">
+            <div class="slide active"><p class="slide-text">Annuals are fully covered by your insurance 🎉</p></div>
+            <div class="slide"><p class="slide-text">Your deductible resets every January 1st — plan visits accordingly</p></div>
+            <div class="slide"><p class="slide-text">Preventive care visits are usually free under the ACA 💊</p></div>
+            <div class="slide"><p class="slide-text">Always verify your provider is in-network before scheduling</p></div>
+            <div class="slide"><p class="slide-text">Telehealth can cost 50–60% less than in-person urgent care ⚡</p></div>
+            <div class="slide"><p class="slide-text">Request an itemized bill after any hospital visit — errors are common</p></div>
+          </div>
+          <div class="slide-controls">
+            <button class="slide-arrow" id="slide-prev">&#8249;</button>
+            <div class="slide-dots" id="slide-dots"></div>
+            <button class="slide-arrow" id="slide-next">&#8250;</button>
+          </div>
+          <span class="slide-counter" id="slide-counter">1 / 6</span>
+        </div>
+      </section>
+
+      <!-- ── CALCULATOR ── -->
+      <section class="panel" id="panel-calc">
+        <h1 class="page-heading" data-i18n="heading_calc">Calculate your<br>Next Office Visit</h1>
+        <div id="calc-form-view">
+          <div class="field-card">
+            <label class="field-label" data-i18n="label_service">Service</label>
+            <div class="select-wrap">
+              <select class="field-select" id="calc-service">
+                <option value="established|180">Established patient office visit</option>
+                <option value="new|260">New patient office visit</option>
+                <option value="urgent|200">Urgent care visit</option>
+                <option value="preventive|100">Preventive / annual exam</option>
+              </select>
+              <span class="select-arrow">&#8964;</span>
+            </div>
+          </div>
+          <div class="field-card">
+            <label class="field-label" data-i18n="label_provider">Provider</label>
+            <div class="select-wrap">
+              <select class="field-select" id="calc-provider">
+                <option value="pcp">PCP: Dr. Allison Brown</option>
+                <option value="uc1">UC: Eric Wu NP</option>
+                <option value="uc2">UC: Dr. Jane Peterson</option>
+                <option value="other">Other / Unknown</option>
+              </select>
+              <span class="select-arrow">&#8964;</span>
+            </div>
+          </div>
+          <div class="field-card">
+            <label class="field-label" data-i18n="label_insurance">Insurance</label>
+            <div class="calc-ins-display">
+              <span class="calc-ins-name" id="calc-ins-name">—</span>
+              <span class="calc-ins-meta" id="calc-ins-meta"></span>
+            </div>
+            <div class="ded-calc-row">
+              <span class="ded-sync-badge">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Auto-synced from your profile
+              </span>
+              <button class="ded-calc-edit-btn" id="calc-ins-edit-btn">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Edit
+              </button>
+            </div>
+          </div>
+          <div class="field-card">
+            <label class="field-label" data-i18n="label_deductible">Deductible Remaining</label>
+            <input class="field-input" type="number" id="calc-deductible" min="0" max="10000" readonly />
+            <div class="ded-calc-row">
+              <span class="ded-sync-badge" id="ded-sync-badge">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Auto-synced from your profile
+              </span>
+              <button class="ded-calc-edit-btn" id="ded-calc-edit-btn">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Edit
+              </button>
+            </div>
+          </div>
+          <div class="calc-annual-hint hidden" id="calc-annual-hint">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span>Annual &amp; preventive exams are <strong>covered 100%</strong> by most insurance plans under the ACA — no deductible or copay applies.</span>
+          </div>
+          <button class="btn-primary full-w" id="calc-btn" data-i18n="btn_calculate">Calculate</button>
+        </div>
+        <div id="calc-results-view" class="hidden">
+          <h2 class="results-heading" data-i18n="heading_costs">Office Visit Costs</h2>
+          <div class="breakdown-card section-card">
+            <div class="breakdown-title" data-i18n="label_breakdown">Price Breakdown</div>
+            <div class="breakdown-row"><span class="breakdown-label" id="res-service-label">—</span><span class="breakdown-right">Total Billed: <strong id="res-billed">$0</strong></span></div>
+            <div class="breakdown-row"><span class="breakdown-label" data-i18n="label_deductible">Deductible</span><span class="breakdown-right" id="res-deductible-msg">—</span></div>
+            <div class="breakdown-row"><span class="breakdown-label" data-i18n="label_coverage">Insurance Coverage</span><span class="breakdown-right" id="res-coverage-msg">—</span></div>
+            <div class="breakdown-row"><span class="breakdown-label" data-i18n="label_copay">Copay</span><span class="breakdown-right" id="res-copay">$0</span></div>
+            <div class="breakdown-total"><span data-i18n="label_est_total">Estimated Total:</span><span id="res-total">$0</span></div>
+          </div>
+          <div class="res-preventive-note hidden" id="res-preventive-note">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Preventive &amp; annual exams are fully covered under the ACA. No deductible or copay applies when visiting an in-network provider.</span>
+          </div>
+          <button class="btn-primary full-w" id="calc-schedule-btn" data-i18n="btn_schedule">Schedule an Appointment</button>
+          <button class="btn-ghost full-w" id="calc-back-btn" data-i18n="btn_recalculate">← Recalculate</button>
+        </div>
+      </section>
+
+      <!-- ── TASKS ── -->
+      <section class="panel" id="panel-tasks">
+        <div class="tasks-header">
+          <h1 class="page-heading-sm" data-i18n="heading_tasks">All Tasks</h1>
+          <div class="tasks-header-actions">
+            <button class="icon-action-btn" id="task-search-toggle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+            <button class="icon-action-btn" id="task-sort-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M7 12h10M11 18h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+          </div>
+        </div>
+        <div class="search-bar hidden" id="task-search-bar">
+          <input type="text" class="field-input" id="task-search-input" placeholder="Search tasks…" />
+        </div>
+        <p class="agenda-label" data-i18n="label_agenda">What's on your agenda?</p>
+        <div class="task-list" id="task-list"></div>
+        <button class="fab" id="open-task-modal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></button>
+      </section>
+
+      <!-- ── CALENDAR ── -->
+      <section class="panel" id="panel-calendar">
+        <h1 class="page-heading" data-i18n="heading_cal">Hi John, ready<br>to schedule?</h1>
+        <div class="cal-action-card section-card">
+          <div class="cal-mini" id="cal-mini-grid"></div>
+          <div class="cal-action-btns">
+            <button class="btn-primary full-w" id="open-appt-modal" data-i18n="btn_schedule">Schedule an Appointment</button>
+            <button class="btn-ghost full-w" id="open-reschedule" data-i18n="btn_reschedule">Reschedule / Cancel</button>
+          </div>
+        </div>
+        <div id="cal-day-section" class="hidden">
+          <h2 class="day-title" id="cal-day-title"></h2>
+          <div id="cal-day-appts"></div>
+        </div>
+        <div class="section-card" style="margin-top:16px">
+          <div class="section-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-i18n="label_your_appts">Your Upcoming Appointments</span></div>
+          <div id="cal-upcoming-list"></div>
+        </div>
+      </section>
+
+      <!-- ── PROFILE ── -->
+      <section class="panel" id="panel-profile">
+        <h1 class="page-heading-sm" data-i18n="heading_profile">Profile</h1>
+
+        <!-- Sub-tab switcher -->
+        <div class="sub-tabs">
+          <button class="sub-tab active" data-subtab="providers" data-i18n="subtab_providers">Saved Providers</button>
+          <button class="sub-tab" data-subtab="account" data-i18n="subtab_account">Account</button>
+        </div>
+
+        <!-- ── Providers sub-panel ── -->
+        <div class="sub-panel" id="sub-providers">
+          <div class="provider-list" id="provider-list"></div>
+          <button class="fab" id="open-provider-modal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></button>
+        </div>
+
+        <!-- ── Account sub-panel ── -->
+        <div class="sub-panel hidden" id="sub-account">
+          <div class="section-card" style="margin-top:4px">
+            <div class="account-avatar">
+              <svg width="38" height="38" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <div class="account-name">John Doe</div>
+            <div class="account-meta" data-i18n="label_account">Account Info</div>
+          </div>
+          <!-- Personal Info -->
+          <div class="section-card">
+            <div class="profile-row"><span class="profile-key" data-i18n="key_name">Name</span><span class="profile-val" id="prof-name">John Doe</span></div>
+            <div class="profile-row"><span class="profile-key" data-i18n="key_dob">DOB</span><span class="profile-val" id="prof-dob">March 14, 1988</span></div>
+            <div class="profile-row"><span class="profile-key" data-i18n="key_phone">Phone</span><span class="profile-val" id="prof-phone">(714) 555-0192</span></div>
+          </div>
+
+          <!-- Insurance Card -->
+          <div class="section-card ins-card">
+            <div class="ins-card-header">
+              <div class="section-label" style="margin-bottom:0">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Insurance</span>
+              </div>
+              <button class="icon-action-btn ins-edit-btn" id="open-ins-modal" title="Edit insurance">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Edit
+              </button>
+            </div>
+            <div class="profile-row"><span class="profile-key">Health Plan</span><span class="profile-val" id="ins-health-plan">Kaiser Permanente</span></div>
+            <div class="profile-row"><span class="profile-key">Medical Group</span><span class="profile-val" id="ins-medical-group">—</span></div>
+            <div class="profile-row"><span class="profile-key">Plan Type</span><span class="profile-val" id="ins-plan-type">HMO</span></div>
+            <div class="profile-row"><span class="profile-key">Copay</span><span class="profile-val" id="ins-copay">$15</span></div>
+            <div class="profile-row"><span class="profile-key" data-i18n="key_member">Member ID</span><span class="profile-val" id="ins-member-id">KP-20384719</span></div>
+            <div class="profile-row"><span class="profile-key">Insurance Phone</span><a class="profile-val profile-phone" id="ins-phone" href="#">—</a></div>
+            <div class="profile-row"><span class="profile-key" data-i18n="key_pcp">PCP</span><span class="profile-val" id="ins-pcp">Dr. Allison Brown</span></div>
+            <div class="profile-row"><span class="profile-key">PCP Phone</span><a class="profile-val profile-phone" id="ins-pcp-phone" href="#">—</a></div>
+            <div class="profile-row ins-eff-row"><span class="profile-key">Effective</span><span class="profile-val" id="ins-effective">—</span></div>
+          </div>
+
+          <!-- Deductible Progress Card -->
+          <div class="section-card ded-card">
+            <div class="ded-header">
+              <div class="section-label" style="margin-bottom:0">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/></svg>
+                <span>Annual Deductible</span>
+              </div>
+              <span class="ded-year">2025</span>
+            </div>
+
+            <div class="ded-amounts">
+              <span class="ded-met" id="ded-met">$500</span>
+              <span class="ded-total" id="ded-total">of $1,500 met</span>
+            </div>
+
+            <div class="ded-bar-track">
+              <div class="ded-bar-fill" id="ded-bar-fill"></div>
+              <div class="ded-bar-label" id="ded-bar-label">33%</div>
+            </div>
+
+            <div class="ded-milestones">
+              <span class="ded-milestone" style="left:0%"><span class="ded-milestone-dot"></span>$0</span>
+              <span class="ded-milestone" style="left:50%"><span class="ded-milestone-dot"></span>$750</span>
+              <span class="ded-milestone" style="left:100%"><span class="ded-milestone-dot"></span>$1,500</span>
+            </div>
+
+            <div class="ded-meta-row">
+              <div class="ded-meta-item">
+                <span class="ded-meta-label">Remaining</span>
+                <span class="ded-meta-val" id="ded-remaining">$1,000</span>
+              </div>
+              <div class="ded-meta-item">
+                <span class="ded-meta-label">Plan Year Resets</span>
+                <span class="ded-meta-val">Jan 1, 2026</span>
+              </div>
+              <div class="ded-meta-item">
+                <span class="ded-meta-label">Out-of-Pocket Max</span>
+                <span class="ded-meta-val">$6,000</span>
+              </div>
+            </div>
+
+            <div class="ded-edit-row">
+              <span class="ded-hint">Update your progress</span>
+              <div class="ded-edit-inputs">
+                <input type="number" class="ded-input" id="ded-met-input" placeholder="Met $" min="0" value="500" />
+                <span class="ded-slash">/</span>
+                <input type="number" class="ded-input" id="ded-max-input" placeholder="Max $" min="0" value="1500" />
+                <button class="ded-update-btn" id="ded-update-btn">Update</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Security Settings -->
+          <div class="section-card" style="margin-bottom:8px">
+            <div class="section-label" style="margin-bottom:12px">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span>Security</span>
+            </div>
+            <div class="profile-row" style="border-bottom:none">
+              <span class="profile-key">Lock Screen PIN</span>
+              <span class="profile-val" id="pin-status-label">Not set</span>
+            </div>
+            <button class="btn-ghost full-w" id="open-pin-setup-btn" style="margin-top:10px;font-size:0.82rem;padding:9px">Set Up / Change PIN</button>
+          </div>
+
+          <button class="btn-logout" id="logout-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="16 17 21 12 16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Log Out
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- BOTTOM NAV -->
+    <nav class="bottom-nav">
+      <button class="nav-tab" data-tab="calc"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="2" width="16" height="20" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 7h8M8 12h4M8 17h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><rect x="14" y="15" width="3" height="3" rx="0.5" fill="currentColor"/></svg><span data-i18n="nav_calc">Calculator</span></button>
+      <button class="nav-tab" data-tab="tasks"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="5" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/></svg><span data-i18n="nav_tasks">Tasks</span></button>
+      <button class="nav-tab active" data-tab="home"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 12L12 4l9 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 21V12h6v9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="nav_home">Home</span></button>
+      <button class="nav-tab" data-tab="calendar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18M8 2v4M16 2v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="8" cy="14" r="1.2" fill="currentColor"/><circle cx="12" cy="14" r="1.2" fill="currentColor"/></svg><span data-i18n="nav_cal">Calendar</span></button>
+      <button class="nav-tab" data-tab="profile"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-i18n="nav_profile">Profile</span></button>
+    </nav>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       AI CHAT MODAL
+  ══════════════════════════════════════ -->
+  <div class="modal-overlay" id="ai-chat-modal">
+    <div class="ai-chat-sheet glass-card">
+      <div class="modal-handle"></div>
+
+      <!-- Chat header -->
+      <div class="ai-chat-header">
+        <div class="ai-header-left">
+          <div class="ai-avatar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z" fill="white"/><path d="M19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8L19 14z" fill="white" opacity="0.7"/></svg>
+          </div>
+          <div>
+            <div class="ai-name">CareGlow AI</div>
+            <div class="ai-status"><span class="ai-status-dot"></span> Online · Always here</div>
+          </div>
+        </div>
+        <div class="ai-header-right">
+          <button class="icon-action-btn" id="ai-translate-toggle" title="Translate app">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 3c-2 3-3 6-3 9s1 6 3 9m0-18c2 3 3 6 3 9s-1 6-3 9M3 12h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </button>
+          <button class="icon-action-btn modal-close" data-modal="ai-chat-modal" style="font-size:1rem">✕</button>
+        </div>
+      </div>
+
+      <!-- Language picker (inline, toggled) -->
+      <div class="lang-picker hidden" id="lang-picker">
+        <div class="lang-picker-label">Translate app to:</div>
+        <div class="lang-options">
+          <button class="lang-btn active" data-lang="en">🇺🇸 English</button>
+          <button class="lang-btn" data-lang="es">🇪🇸 Español</button>
+          <button class="lang-btn" data-lang="fr">🇫🇷 Français</button>
+          <button class="lang-btn" data-lang="zh">🇨🇳 中文</button>
+          <button class="lang-btn" data-lang="vi">🇻🇳 Tiếng Việt</button>
+          <button class="lang-btn" data-lang="ko">🇰🇷 한국어</button>
+        </div>
+      </div>
+
+      <!-- Messages -->
+      <div class="ai-messages" id="ai-messages"></div>
+
+      <!-- Quick reply chips -->
+      <div class="ai-chips" id="ai-chips"></div>
+
+      <!-- Input row -->
+      <div class="ai-input-row">
+        <input type="text" class="ai-input" id="ai-input" placeholder="Ask me anything about your health…" autocomplete="off" />
+        <button class="ai-send-btn" id="ai-send-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       OTHER MODALS
+  ══════════════════════════════════════ -->
+
+  <!-- Schedule Appointment -->
+  <div class="modal-overlay" id="appt-modal">
+    <div class="modal-sheet glass-card">
+      <div class="modal-handle"></div>
+      <h2 class="modal-title" data-i18n="title_schedule">Schedule Appointment</h2>
+      <div class="form-group">
+        <label class="field-label" data-i18n="label_provider">Provider</label>
+        <div class="select-wrap"><select class="field-select" id="appt-provider"><option>PCP: Dr. Allison Brown</option><option>UC: Eric Wu NP</option><option>UC: Dr. Jane Peterson</option><option>Other</option></select><span class="select-arrow">&#8964;</span></div>
+      </div>
+      <div class="form-group">
+        <label class="field-label" data-i18n="label_visit_type">Visit Type</label>
+        <div class="select-wrap"><select class="field-select" id="appt-type"><option>Established patient office visit</option><option>New patient office visit</option><option>Preventive / annual exam</option><option>Urgent care visit</option><option>Specialist consultation</option><option>Telehealth visit</option></select><span class="select-arrow">&#8964;</span></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label class="field-label" data-i18n="label_date">Date</label><input type="date" class="field-input" id="appt-date" /></div>
+        <div class="form-group"><label class="field-label" data-i18n="label_time">Time</label><input type="time" class="field-input" id="appt-time" /></div>
+      </div>
+      <div class="form-group"><label class="field-label" data-i18n="label_notes">Notes</label><textarea class="field-input" id="appt-notes" rows="2" placeholder="e.g. bring insurance card"></textarea></div>
+
+      <!-- ── Attachments ── -->
+      <div class="form-group">
+        <label class="field-label">Attachments <span class="field-label-hint">images, PDFs, docs</span></label>
+
+        <!-- Drop zone -->
+        <div class="upload-zone" id="upload-zone">
+          <input type="file" id="file-input" multiple accept="image/*,.pdf,.doc,.docx,.txt,.csv" hidden />
+          <div class="upload-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <p class="upload-text">Drag &amp; drop files here, or <span class="upload-link" id="upload-browse-link">browse</span></p>
+          <p class="upload-hint">Images, PDF, DOC · max 5 MB each · up to 6 files</p>
+        </div>
+
+        <!-- Preview list -->
+        <div class="attachment-preview-list" id="attachment-preview"></div>
+      </div>
+
+      <button class="btn-primary full-w" id="save-appt-btn" data-i18n="btn_confirm">Confirm Appointment</button>
+      <button class="btn-ghost full-w modal-close" data-modal="appt-modal" data-i18n="btn_cancel">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Reschedule/Cancel -->
+  <div class="modal-overlay" id="reschedule-modal">
+    <div class="modal-sheet glass-card">
+      <div class="modal-handle"></div>
+      <h2 class="modal-title" data-i18n="title_your_appts">Your Appointments</h2>
+      <div id="reschedule-list"></div>
+      <button class="btn-ghost full-w modal-close" data-modal="reschedule-modal" style="margin-top:12px" data-i18n="btn_close">Close</button>
+    </div>
+  </div>
+
+  <!-- Add Task -->
+  <div class="modal-overlay" id="task-modal">
+    <div class="modal-sheet glass-card">
+      <div class="modal-handle"></div>
+      <h2 class="modal-title" data-i18n="title_new_task">New Task</h2>
+      <div class="form-group"><label class="field-label" data-i18n="label_task_desc">Task description</label><textarea class="field-input" id="task-text" rows="3" placeholder="e.g. Bring Daycare Forms to appointment"></textarea></div>
+      <div class="form-row">
+        <div class="form-group"><label class="field-label" data-i18n="label_due">Due date</label><input type="date" class="field-input" id="task-date" /></div>
+        <div class="form-group"><label class="field-label" data-i18n="label_priority">Priority</label><div class="select-wrap"><select class="field-select" id="task-priority"><option value="normal">Normal</option><option value="high">High</option><option value="low">Low</option></select><span class="select-arrow">&#8964;</span></div></div>
+      </div>
+      <div class="form-group">
+        <label class="field-label">Assign to</label>
+        <div class="select-wrap">
+          <select class="field-select" id="task-assignee">
+            <option value="">Unassigned</option>
+            <option value="__edit__">✏ Edit names…</option>
+          </select>
+          <span class="select-arrow">&#8964;</span>
+        </div>
+      </div>
+      <!-- Attachments -->
+      <div class="form-group">
+        <label class="field-label">Attachments <span class="field-label-hint">optional · images, PDFs, docs</span></label>
+        <div class="upload-zone" id="task-upload-zone">
+          <input type="file" id="task-file-input" multiple accept="image/*,.pdf,.doc,.docx,.txt,.csv" hidden />
+          <div class="upload-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <p class="upload-text">Drag &amp; drop files here, or <span class="upload-link" id="task-upload-browse-link">browse</span></p>
+          <p class="upload-hint">Images, PDF, DOC · max 5 MB each · up to 6 files</p>
+        </div>
+        <div class="attachment-preview-list" id="task-attachment-preview"></div>
+      </div>
+      <button class="btn-primary full-w" id="save-task-btn" data-i18n="btn_add_task">Add Task</button>
+      <button class="btn-ghost full-w modal-close" data-modal="task-modal" data-i18n="btn_cancel">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Add Provider -->
+  <div class="modal-overlay" id="provider-modal">
+    <div class="modal-sheet glass-card">
+      <div class="modal-handle"></div>
+      <h2 class="modal-title" data-i18n="title_add_provider">Add Provider</h2>
+      <div class="form-group"><label class="field-label" data-i18n="label_prov_name">Provider Name</label><input type="text" class="field-input" id="prov-name" placeholder="e.g. Dr. Sarah Lee" /></div>
+      <div class="form-group"><label class="field-label" data-i18n="label_specialty">Specialty</label><input type="text" class="field-input" id="prov-type" placeholder="e.g. PCP, Urgent Care, Cardiologist" /></div>
+      <div class="form-group"><label class="field-label" data-i18n="label_location">Location</label><input type="text" class="field-input" id="prov-location" placeholder="e.g. Kaiser, 1234 Main St" /></div>
+      <div class="form-group"><label class="field-label" data-i18n="label_last_visit">Last Visited</label><input type="date" class="field-input" id="prov-last-visit" /></div>
+      <button class="btn-primary full-w" id="save-provider-btn" data-i18n="btn_save">Save Provider</button>
+      <button class="btn-ghost full-w modal-close" data-modal="provider-modal" data-i18n="btn_cancel">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Edit Insurance -->
+  <div class="modal-overlay" id="ins-modal">
+    <div class="modal-sheet glass-card">
+      <div class="modal-handle"></div>
+      <h2 class="modal-title">Update Insurance</h2>
+      <div class="ins-split-hint">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>Your insurance has two separate parts — your <strong>Health Plan</strong> (the insurer who covers costs) and your <strong>Medical Group</strong> (the doctors &amp; clinics that provide care). For example: <em>Kaiser Permanente</em> is both, but many patients have <em>Blue Shield</em> as their Health Plan and a separate medical group like <em>Hill Physicians</em>.</span>
+      </div>
+      <div class="form-group">
+        <label class="field-label">Health Plan <span class="field-label-hint">insurer</span></label>
+        <input type="text" class="field-input" id="ins-inp-health-plan" placeholder="e.g. Kaiser Permanente, Blue Shield" autocomplete="off" />
+      </div>
+      <div class="form-group">
+        <label class="field-label">Medical Group <span class="field-label-hint">care provider</span></label>
+        <input type="text" class="field-input" id="ins-inp-medical-group" placeholder="e.g. Hill Physicians, SCPMG" autocomplete="off" />
+      </div>
+      <div class="form-group">
+        <label class="field-label">Plan Type</label>
+        <div class="select-wrap">
+          <select class="field-select" id="ins-inp-plan-type">
+            <option value="HMO">HMO</option>
+            <option value="PPO">PPO</option>
+            <option value="EPO">EPO</option>
+            <option value="HDHP">HDHP (High-Deductible)</option>
+            <option value="POS">POS</option>
+            <option value="Medicare">Medicare</option>
+            <option value="Medicaid">Medicaid</option>
+            <option value="No Insurance">No Insurance</option>
+          </select>
+          <span class="select-arrow">&#8964;</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="field-label">Copay <span class="field-label-hint">per visit ($)</span></label>
+        <input type="number" class="field-input" id="ins-inp-copay" min="0" placeholder="e.g. 15" />
+      </div>
+      <p class="ins-rate-hint">Auto-filled from plan type — verify with your insurance card or EOB.</p>
+      <div class="form-group">
+        <label class="field-label">Member ID</label>
+        <input type="text" class="field-input" id="ins-inp-member-id" placeholder="e.g. KP-20384719" autocomplete="off" />
+      </div>
+      <div class="form-group">
+        <label class="field-label">Insurance Phone <span class="field-label-hint">optional</span></label>
+        <input type="tel" class="field-input" id="ins-inp-phone" placeholder="e.g. (800) 464-4000" autocomplete="tel" />
+      </div>
+      <div class="form-group">
+        <label class="field-label">Primary Care Physician (PCP)</label>
+        <input type="text" class="field-input" id="ins-inp-pcp" placeholder="e.g. Dr. Allison Brown" autocomplete="off" />
+      </div>
+      <div class="form-group">
+        <label class="field-label">PCP Phone <span class="field-label-hint">optional</span></label>
+        <input type="tel" class="field-input" id="ins-inp-pcp-phone" placeholder="e.g. (714) 555-0192" autocomplete="tel" />
+      </div>
+      <div class="form-group">
+        <label class="field-label">Effective Date <span class="field-label-hint">optional</span></label>
+        <input type="date" class="field-input" id="ins-inp-effective" />
+      </div>
+      <button class="btn-primary full-w" id="save-ins-btn">Save Insurance</button>
+      <button class="btn-ghost full-w modal-close" data-modal="ins-modal">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Attachment Viewer -->
+  <div class="modal-overlay" id="attachment-viewer-modal">
+    <div class="modal-sheet glass-card" style="max-height:90vh">
+      <div class="modal-handle"></div>
+      <div class="modal-header-row">
+        <h2 class="modal-title" id="viewer-appt-title">Attachments</h2>
+        <button class="icon-action-btn modal-close" data-modal="attachment-viewer-modal" style="font-size:1rem">✕</button>
+      </div>
+      <div class="viewer-grid" id="viewer-grid"></div>
+      <button class="btn-ghost full-w modal-close" data-modal="attachment-viewer-modal" style="margin-top:12px">Close</button>
+    </div>
+  </div>
+
+  <!-- PIN Setup Modal -->
+  <div class="modal-overlay" id="pin-setup-modal">
+    <div class="modal-sheet glass-card">
+      <div class="modal-handle"></div>
+      <h2 class="modal-title">Set Up Lock Screen PIN</h2>
+      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:16px;line-height:1.5">Choose a 4-digit PIN to quickly unlock your session instead of your password.</p>
+      <div class="form-group">
+        <label class="field-label">New PIN</label>
+        <input type="password" inputmode="numeric" maxlength="4" class="field-input" id="pin-new" placeholder="4 digits" />
+      </div>
+      <div class="form-group">
+        <label class="field-label">Confirm PIN</label>
+        <input type="password" inputmode="numeric" maxlength="4" class="field-input" id="pin-confirm" placeholder="4 digits again" />
+      </div>
+      <button class="btn-primary full-w" id="save-pin-btn">Save PIN</button>
+      <button class="btn-ghost full-w modal-close" data-modal="pin-setup-modal">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Manage Names -->
+  <div class="modal-overlay" id="names-modal">
+    <div class="modal-sheet glass-card">
+      <div class="modal-handle"></div>
+      <h2 class="modal-title">Manage Names</h2>
+      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:14px;line-height:1.5">Saved names appear in the task "Assign to" dropdown.</p>
+      <div id="names-list"></div>
+      <div class="names-add-row">
+        <input type="text" class="field-input" id="name-input" placeholder="Enter a name…" />
+        <button class="btn-primary" id="add-name-btn">Add</button>
+      </div>
+      <button class="btn-ghost full-w modal-close" data-modal="names-modal" style="margin-top:12px">Done</button>
+    </div>
+  </div>
+
+  <div class="toast-wrap" id="toast-wrap"></div>
+  <script src="app.js"></script>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</body>
+</html>
