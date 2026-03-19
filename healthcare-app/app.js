@@ -58,6 +58,7 @@ const state = {
   tasks:        load('cg_tasks',[]),
   providers:    load('cg_providers',[]),
   savedNames:   load('cg_saved_names', ['John Doe', 'Mary Smith']),
+  streak: load('cg_streak', { count: 0, lastDate: '' }),
   calYear:  new Date().getFullYear(),
   calMonth: new Date().getMonth(),
   selectedDay: null,
@@ -1221,7 +1222,9 @@ qs('#calc-schedule-btn').addEventListener('click', () => switchTab('calendar'));
 function renderTasks(filter='') {
   const list  = qs('#task-list');
   const today = todayISO();
-  let tasks = filter ? state.tasks.filter(t => t.text.toLowerCase().includes(filter.toLowerCase())) : state.tasks;
+  let tasks = state.tasks;
+  if (filter) tasks = tasks.filter(t => t.text.toLowerCase().includes(filter.toLowerCase()));
+  if (activeNameFilter) tasks = tasks.filter(t => t.assignedTo === activeNameFilter);
 
   if (!tasks.length) { list.innerHTML = '<p class="empty-msg">No tasks — tap + to add one</p>'; return; }
 
@@ -1262,6 +1265,7 @@ function renderTasks(filter='') {
     renderTasks(qs('#task-search-input').value);
     renderHome();
     if (wasUndone) {
+      onTaskComplete();
       toastUndo('Task marked complete', () => {
         t.done = false;
         save('cg_tasks', state.tasks);
@@ -1309,6 +1313,7 @@ function renderTasks(filter='') {
     const t = state.tasks.find(t => t.id === btn.dataset.viewTask);
     if (t?.attachments?.length) openAttachmentViewer(t.attachments, t.text.slice(0,40));
   }));
+  renderNameFilterChips();
 }
 
 qs('#open-task-modal').addEventListener('click', () => {
@@ -1418,9 +1423,85 @@ qs('#add-name-btn').addEventListener('click', () => {
   renderNamesList(); toast('Name added ✓');
 });
 qs('#name-input').addEventListener('keydown', e => { if (e.key === 'Enter') qs('#add-name-btn').click(); });
+
+// ── Name filter chips ───────────────────────────────────────────────────────
+function renderNameFilterChips() {
+  const wrap = qs('#name-filter-chips');
+  if (!wrap) return;
+  const names = [...new Set(state.tasks.filter(t => t.assignedTo).map(t => t.assignedTo))];
+  if (!names.length) { wrap.innerHTML = ''; wrap.classList.add('hidden'); return; }
+  wrap.classList.remove('hidden');
+  wrap.innerHTML = [
+    `<button class="name-chip${activeNameFilter === '' ? ' active' : ''}" data-name-filter="">All</button>`,
+    ...names.map(n => `<button class="name-chip${activeNameFilter === n ? ' active' : ''}" data-name-filter="${n}">👤 ${n}</button>`)
+  ].join('');
+  qsa('[data-name-filter]', wrap).forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeNameFilter = btn.dataset.nameFilter;
+      renderTasks(qs('#task-search-input').value);
+    });
+  });
+}
+
+// ── Streak & micro-feedback ─────────────────────────────────────────────────
+const STREAK_TIERS = [
+  { min: 30, emoji: '👑', label: msg => `${msg}  ·  30-day streak!` },
+  { min: 14, emoji: '🌈', label: msg => `${msg}  ·  14-day streak!` },
+  { min: 7,  emoji: '🏆', label: msg => `${msg}  ·  Week streak!`   },
+  { min: 3,  emoji: '🔥', label: msg => `${msg}  ·  ${state.streak.count}-day streak!` },
+];
+const COMPLETE_MSGS = [
+  'Great work! 💪', 'You nailed it! ⚡', 'Keep going! 🌟',
+  'Task crushed! ✨', 'On a roll! 🚀', 'Nice one! 🎯',
+  'Health goals unlocked! 💚', 'You\'re doing amazing! 🌸',
+];
+
+function onTaskComplete() {
+  const today = todayISO();
+  const s = state.streak;
+  const yesterday = new Date(Date.now() - 864e5).toISOString().slice(0,10);
+  if (s.lastDate === today) {
+    // already got streak credit today — just show encouragement
+  } else if (s.lastDate === yesterday) {
+    s.count++;
+    s.lastDate = today;
+  } else {
+    s.count = 1;
+    s.lastDate = today;
+  }
+  save('cg_streak', s);
+  showCompletionFeedback();
+}
+
+function showCompletionFeedback() {
+  const s = state.streak;
+  const msg = COMPLETE_MSGS[Math.floor(Math.random() * COMPLETE_MSGS.length)];
+  const tier = [...STREAK_TIERS].find(t => s.count >= t.min);
+  if (tier) {
+    showStreakBurst(tier.emoji, `${s.count}-day streak!`, msg);
+  } else {
+    toast(msg);
+  }
+}
+
+function showStreakBurst(emoji, countLabel, msg) {
+  const burst = qs('#streak-burst');
+  if (!burst) return;
+  qs('#streak-fire-emoji').textContent = emoji;
+  qs('#streak-count-val').textContent  = countLabel;
+  qs('#streak-msg-val').textContent    = msg;
+  burst.classList.remove('hidden');
+  if (navigator.vibrate) navigator.vibrate([80, 40, 80, 40, 120]);
+  setTimeout(() => {
+    burst.classList.add('burst-fade');
+    setTimeout(() => { burst.classList.add('hidden'); burst.classList.remove('burst-fade'); }, 400);
+  }, 2200);
+}
+
 qs('#task-search-toggle').addEventListener('click', () => { qs('#task-search-bar').classList.toggle('hidden'); if (!qs('#task-search-bar').classList.contains('hidden')) qs('#task-search-input').focus(); });
 qs('#task-search-input').addEventListener('input', e => renderTasks(e.target.value));
 let sortAsc = true;
+let activeNameFilter = '';
 qs('#task-sort-btn').addEventListener('click', () => {
   sortAsc = !sortAsc;
   state.tasks.sort((a,b) => sortAsc ? (a.due||'z').localeCompare(b.due||'z') : (b.due||'').localeCompare(a.due||''));

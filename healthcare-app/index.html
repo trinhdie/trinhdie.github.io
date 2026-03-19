@@ -554,6 +554,7 @@
         <div class="search-bar hidden" id="task-search-bar">
           <input type="text" class="field-input" id="task-search-input" placeholder="Search tasks…" />
         </div>
+        <div class="name-filter-chips hidden" id="name-filter-chips"></div>
         <p class="agenda-label" data-i18n="label_agenda">What's on your agenda?</p>
         <div class="task-list" id="task-list"></div>
         <button class="fab" id="open-task-modal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg></button>
@@ -988,6 +989,15 @@
         <button class="btn-primary" id="add-name-btn">Add</button>
       </div>
       <button class="btn-ghost full-w modal-close" data-modal="names-modal" style="margin-top:12px">Done</button>
+    </div>
+  </div>
+
+  <!-- Streak burst overlay -->
+  <div id="streak-burst" class="streak-burst hidden">
+    <div class="streak-burst-inner">
+      <div class="streak-fire" id="streak-fire-emoji">🔥</div>
+      <div class="streak-count-val" id="streak-count-val"></div>
+      <div class="streak-msg-val" id="streak-msg-val"></div>
     </div>
   </div>
 

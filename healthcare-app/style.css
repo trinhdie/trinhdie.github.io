@@ -1377,3 +1377,47 @@ textarea.field-input:focus { border-color: var(--teal); }
 .names-list-name { font-size: 0.88rem; color: var(--text); flex: 1; }
 .names-list-btns { display: flex; gap: 8px; flex-shrink: 0; }
 .names-edit-input { padding: 6px 10px; font-size: 0.85rem; flex: 1; }
+
+/* ── Name filter chips ──────────────────────────────────────────── */
+.name-filter-chips {
+  display: flex; gap: 8px; overflow-x: auto; padding: 2px 0 12px;
+  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.name-filter-chips::-webkit-scrollbar { display: none; }
+.name-chip {
+  flex-shrink: 0; padding: 5px 14px; border-radius: 20px;
+  border: 1px solid var(--border); background: var(--glass);
+  color: var(--muted); font-size: 0.75rem; font-family: inherit;
+  cursor: pointer; transition: all 0.15s; white-space: nowrap;
+}
+.name-chip.active {
+  background: rgba(74,128,128,0.18); border-color: var(--teal); color: var(--teal);
+}
+.name-chip:active { opacity: 0.7; }
+
+/* ── Streak burst overlay ───────────────────────────────────────── */
+.streak-burst {
+  position: fixed; inset: 0; z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none; background: rgba(0,0,0,0.35);
+}
+.streak-burst.hidden { display: none; }
+.streak-burst-inner {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  background: rgba(15,15,17,0.95); border: 1px solid rgba(74,128,128,0.4);
+  border-radius: 22px; padding: 28px 40px;
+  animation: streakPop 0.45s cubic-bezier(0.175,0.885,0.32,1.275) forwards;
+}
+.streak-fire { font-size: 2.6rem; }
+.streak-count-val { font-size: 1.5rem; font-weight: 800; color: var(--teal); font-family: 'Fraunces', serif; }
+.streak-msg-val { font-size: 0.86rem; color: var(--text); margin-top: 2px; }
+.burst-fade .streak-burst-inner { animation: streakFade 0.4s ease forwards; }
+@keyframes streakPop {
+  0%   { transform: scale(0.4); opacity: 0; }
+  65%  { transform: scale(1.06); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes streakFade {
+  0%   { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.85); opacity: 0; }
+}
